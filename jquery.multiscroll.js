@@ -373,28 +373,27 @@
 		 * http://www.sitepoint.com/html5-javascript-mouse-wheel/
 		 */
 		function MouseWheelHandler(e) {
-			if(options.autoScrolling){
-				// cross-browser wheel delta
-				e = window.event || e;
-				var delta = Math.max(-1, Math.min(1,
-						(e.wheelDelta || -e.deltaY || -e.detail)));
+			// cross-browser wheel delta
+			e = window.event || e;
+			var delta = Math.max(-1, Math.min(1,
+					(e.wheelDelta || -e.deltaY || -e.detail)));
 
-				if (!isMoving) { //if theres any #
+			if (!isMoving) { //if theres any #
 
-					//scrolling down?
-					if (delta < 0) {
-						$.fn.multiscroll.moveSectionDown();
-					}
-
-					//scrolling up?
-					else {
-						$.fn.multiscroll.moveSectionUp();
-					}
+				//scrolling down?
+				if (delta < 0) {
+					$.fn.multiscroll.moveSectionDown();
 				}
-			
 
-				return false;
+				//scrolling up?
+				else {
+					$.fn.multiscroll.moveSectionUp();
+				}
 			}
+		
+
+			return false;
+			
 		}
 
 		/**
