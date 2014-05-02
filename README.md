@@ -29,10 +29,6 @@ As you can see in the example files, you will need to include the JavaScript fil
  one rather than "linear" or "swing". You can also add the full jQuery UI instead of this file if you prefer -->
 <script src="vendors/jquery.easings.min.js"></script>	
 
-	
-<!-- This following line needed in the case of setting the plugin option `scrollOverflow` to `true` -->
-<script type="text/javascript" src="vendors/jquery.slimscroll.min.js"></script>
-
 <script type="text/javascript" src="jquery.fullPage.js"></script>
 ```
 
