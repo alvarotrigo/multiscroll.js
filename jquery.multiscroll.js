@@ -1,5 +1,5 @@
 /**
- * multiscroll.js 0.0.1 Beta
+ * multiscroll.js 0.0.2 Beta
  * https://github.com/alvarotrigo/multiscroll.js
  * MIT licensed
  *
@@ -123,10 +123,13 @@
 			});
 	
 			if(!sectionIndex){
-				$(this).addClass('active');
+				//activating the navigation bullet
 				nav.find('li').eq(sectionIndex).find('a').addClass('active');
 			}
 		}).promise().done(function(){	
+			 $('.ms-right').find('.ms-section').last().addClass('active');
+			 $('.ms-left').find('.ms-section').first().addClass('active');
+
 			$.isFunction( options.afterRender ) && options.afterRender.call( this);
 		});
 
@@ -228,9 +231,11 @@
 		function positionRightPanel(){
 			//moving the right section to the bottom
 			if(options.css3){
-				transformContainer($('.ms-right'), 'translate3d(0px, -' + $('.ms-right').find('.ms-section').last().position().top + 'px, 0px)', false);
+				transformContainer($('.ms-left'), 'translate3d(0px, -' + $('.ms-left').find('.ms-section.active').position().top + 'px, 0px)', false);
+				transformContainer($('.ms-right'), 'translate3d(0px, -' + $('.ms-right').find('.ms-section.active').position().top + 'px, 0px)', false);
 			}else{
-				$('.ms-right').css('top', -$('.ms-right').find('.ms-section').last().position().top );
+				$('.ms-left').css('top', -$('.ms-left').find('.ms-section.active').position().top );
+				$('.ms-right').css('top', -$('.ms-right').find('.ms-section.active').position().top );
 			}
 		}
 
@@ -393,7 +398,6 @@
 		
 
 			return false;
-			
 		}
 
 		/**
