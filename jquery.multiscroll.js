@@ -1,5 +1,5 @@
 /**
- * multiscroll.js 0.0.3 Beta
+ * multiscroll.js 0.0.4 Beta
  * https://github.com/alvarotrigo/multiscroll.js
  * MIT licensed
  *
@@ -14,7 +14,8 @@
 			'scrollingSpeed': 700,
 			'easing': 'easeInQuart',
 			'menu': true,
-			'sectionsColor': false,
+			'sectionsColor': [],
+			'anchors':[],
 			'navigation': false,
 			'navigationPosition': 'right',
 			'navigationColor': '#000',
@@ -112,8 +113,9 @@
 				if(typeof tooltip === 'undefined'){
 					tooltip = '';
 				}
-
-				nav.find('ul').append('<li data-tooltip="' + tooltip + '"><a href="#' + link + '"><span></span></a></li>');
+				if (options.navigation) {
+					nav.find('ul').append('<li data-tooltip="' + tooltip + '"><a href="#' + link + '"><span></span></a></li>');
+				}
 			}
 		});
 
@@ -129,7 +131,7 @@
 				'display': 'block'
 			});
 	
-			if(!sectionIndex){
+			if(!sectionIndex && options.navigation ){
 				//activating the navigation bullet
 				nav.find('li').eq(sectionIndex).find('a').addClass('active');
 			}
