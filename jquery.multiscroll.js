@@ -1,5 +1,5 @@
 /**
- * multiscroll.js 0.0.2 Beta
+ * multiscroll.js 0.0.3 Beta
  * https://github.com/alvarotrigo/multiscroll.js
  * MIT licensed
  *
@@ -27,6 +27,7 @@
 			'fixedElements': null,
 			'normalScrollElements': null, 
 			'keyboardScrolling': true,
+			'touchSensitivity': 5,
 
 			//events
 			'afterLoad': null,
@@ -48,11 +49,17 @@
 
 
 		addMouseWheelHandler();
+		addTouchHandler();
 
 		//if css3 is not supported, it will use jQuery animations
 		if(options.css3){
 			options.css3 = support3d();
 		}
+
+		$('html, body').css({
+			'overflow' : 'hidden',
+			'height' : '100%'
+		});
 
 		//creating the navigation dots 
 		if (options.navigation) {
@@ -540,6 +547,88 @@
 		   options.scrollingSpeed = value;
 		};
 
+
+
+		var touchStartY = 0;
+		var touchStartX = 0;
+		var touchEndY = 0;
+		var touchEndX = 0;
+	
+		/* Detecting touch events 
+		
+		* As we are changing the top property of the page on scrolling, we can not use the traditional way to detect it.
+		* This way, the touchstart and the touch moves shows an small difference between them which is the
+		* used one to determine the direction.
+		*/		
+		function touchMoveHandler(event){
+			var e = event.originalEvent;
+
+			//preventing the easing on iOS devices 
+			event.preventDefault();
+
+			var activeSection = $('.ms-left .ms-section.active');
+
+			if (!isMoving) { //if theres any #
+				var touchEvents = getEventsPage(e);
+				touchEndY = touchEvents['y'];
+				touchEndX = touchEvents['x'];
+									
+
+				//is the movement greater than the minimum resistance to scroll?
+				if (Math.abs(touchStartY - touchEndY) > ($(window).height() / 100 * options.touchSensitivity)) {
+
+					if (touchStartY > touchEndY) {
+						$.fn.multiscroll.moveSectionDown();
+
+					} else if (touchEndY > touchStartY) {
+						$.fn.multiscroll.moveSectionUp();
+					}
+				}
+			}
+		}
+
+
+
+		function touchStartHandler(event){
+			var e = event.originalEvent;
+			var touchEvents = getEventsPage(e);
+			touchStartY = touchEvents['y'];
+			touchStartX = touchEvents['x'];
+		}
+
+
+		/**
+		* Adds the possibility to auto scroll through sections on touch devices.
+		*/
+		function addTouchHandler(){
+			$(document).off('touchstart MSPointerDown').on('touchstart MSPointerDown', touchStartHandler);
+			$(document).off('touchmove MSPointerMove').on('touchmove MSPointerMove', touchMoveHandler);
+		}
+		
+		/**
+		* Removes the auto scrolling for touch devices.
+		*/
+		function removeTouchHandler(){
+			$(document).off('touchstart MSPointerDown');
+			$(document).off('touchmove MSPointerMove');
+		}
+
+		/**
+		* Gets the pageX and pageY properties depending on the browser.
+		* https://github.com/alvarotrigo/fullPage.js/issues/194#issuecomment-34069854
+		*/
+		function getEventsPage(e){
+			var events = new Array();
+			if (window.navigator.msPointerEnabled){
+				events['y'] = e.pageY;
+				events['x'] = e.pageX;
+			}else{
+				events['y'] = e.touches[0].pageY;
+				events['x'] =  e.touches[0].pageX;
+			}
+
+			return events;
+		}
 
 	};	
 })(jQuery);
