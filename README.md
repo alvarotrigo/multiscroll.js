@@ -79,7 +79,6 @@ $(document).ready(function() {
 		css3: false,
 		paddingTop: 0,
 		paddingBottom: 0,
-		fixedElements: null,
 		normalScrollElements: null, 
 		keyboardScrolling: true,
 		touchSensitivity: 5,
