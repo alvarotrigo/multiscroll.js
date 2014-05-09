@@ -8,9 +8,10 @@ A simple plugin to create multi scrolling websites with two vertical scrolling p
 Invite me to a coffe
 [![Donate](https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/es/cgi-bin/webscr?cmd=_donations&business=BEK5JQCQMED4J&lc=GB&item_name=multiScroll%2ejs&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
 
+Customizations of the plugin available upon request for some reasonable price. <a href="http://alvarotrigo.com/#contact-page">Contact me</a>.
+
 ## Introduction
-Suggestion are more than welcome, not only for feature requests but also for coding style improvements.
-Let's make this a great plugin to make people's lives easier!
+This plugin its in Beta version. Suggestion are more than welcome, not only for feature requests but also for coding style improvements.
 
 ## Compatibility 
 multiScroll.js is fully functional on all modern browsers, as well as some old ones such as Internet Explorer 8, 9, Opera 12... 
@@ -29,7 +30,7 @@ As you can see in the example files, you will need to include the JavaScript fil
  one rather than "linear" or "swing". You can also add the full jQuery UI instead of this file if you prefer -->
 <script src="vendors/jquery.easings.min.js"></script>	
 
-<script type="text/javascript" src="jquery.fullPage.js"></script>
+<script type="text/javascript" src="jquery.multiscroll.js"></script>
 ```
 
 ###Required HTML structure
@@ -63,23 +64,24 @@ A more complex initialization with all options set could look like this:
 ```javascript
 $(document).ready(function() {
 	$('#multiscroll').multiscroll{
-		'verticalCentered' : true,
-		'scrollingSpeed': 700,
-		'easing': 'easeInQuart',
-		'menu': true,
-		'sectionsColor': false,
-		'navigation': false,
-		'navigationPosition': 'right',
-		'navigationColor': '#000',
-		'navigationTooltips': [],
-		'loopBottom': false,
-		'loopTop': false,
-		'css3': false,
-		'paddingTop': 0,
-		'paddingBottom': 0,
-		'fixedElements': null,
-		'normalScrollElements': null, 
-		'keyboardScrolling': true,
+		verticalCentered : true,
+		scrollingSpeed: 700,
+		easing: 'easeInQuart',
+		menu: false,
+		sectionsColor: [],
+		navigation: false,
+		navigationPosition: 'right',
+		navigationColor: '#000',
+		navigationTooltips: [],
+		loopBottom: false,
+		loopTop: false,
+		css3: false,
+		paddingTop: 0,
+		paddingBottom: 0,
+		fixedElements: null,
+		normalScrollElements: null, 
+		keyboardScrolling: true,
+		touchSensitivity: 5,
 
 		//events
 		onLeave: function(index, nextIndex, direction){},
@@ -91,7 +93,7 @@ $(document).ready(function() {
 ```
 
 #### Using anchor links
-In order to create links to certain sections, if you are using multiscroll.js with anchor links for the sections (using the `anchors` option), then you will be able to use anchor links also to navigate directly to a certain slide inside a section.
+In order to create links to certain sections, if you are using multiscroll.js with anchor links for the sections (using the `anchors` option), then you will be able to use anchor links also to navigate directly to a certain section by using the URL. 
 
 You can do it by creating accessing to the URL by adding the anchor. For example: `http://youriste.com/#secondSection`.
 
@@ -122,7 +124,7 @@ It requieres the file `vendors/jquery.easings.min.js` or [jQuery UI](http://jque
 
 - `loopBottom`: (default `false`) Defines whether scrolling down in the last section should scroll to the first one or not.
 
-- `css3`: (default `false`). Defines wheter to use JavaScript or CSS3 transforms to scroll within sections and slides. Useful to speed up the movement in tablet and mobile devices with browsers supporting CSS3. If this option is set to `true` and the browser doesn't support CSS3, a jQuery fallback will be used instead.
+- `css3`: (default `false`). Defines wheter to use JavaScript or CSS3 transforms to scroll within sections. Useful to speed up the movement in tablet and mobile devices with browsers supporting CSS3. If this option is set to `true` and the browser doesn't support CSS3, a jQuery fallback will be used instead.
 
 - `paddingTop`: (default `0`) Defines the top padding for each section with a numerical value and its measure (paddingTop: '10px', paddingTop: '10em'...) Useful in case of using a fixed header. 
 
@@ -131,6 +133,8 @@ It requieres the file `vendors/jquery.easings.min.js` or [jQuery UI](http://jque
 - `normalScrollElements`: (default `null`) If you want to avoid the auto scroll when scrolling over some elements, this is the option you need to use. (useful for maps, scrolling divs etc.) It requires a string with the jQuery selectors for those elements. (For example: `normalScrollElements: '#element1, .element2'`)
 
 - `keyboardScrolling`: (default `true`) Defines if the content can be navigated using the keyboard
+
+- `touchSensitivity`: (default 5) Defines a percentage of the browsers window width/height, and how far a swipe must measure for navigating to the next section.
 
 - `menu`: (default `false`) A selector can be used to specify the menu to link with the sections. This way the scrolling of the sections will activate the corresponding element in the menu using the class `active`.
 This won't generate a menu but will just add the `active` class to the element in the given menu with the corresponding anchor links.
@@ -154,7 +158,7 @@ $('#multiscroll').multiscroll({
 
 - `navigationPosition`: (default `none`) It can be set to `left` or `right` and defines which position the navigation bar will be shown (if using one).
 
-- `navigationTooltips`: (default []) Defines the tooltips to show for the navigation circles in case they are being used. Example: `navigationTooltips: ['firstSlide', 'secondSlide']`.
+- `navigationTooltips`: (default []) Defines the tooltips to show for the navigation circles in case they are being used. Example: `navigationTooltips: ['firstSection', 'secondSection']`.
 
 
 ## Methods
@@ -174,8 +178,8 @@ $.fn.multiscroll.moveSectionDown();
 ### moveTo(section)
 Scrolls the page to the given section. The first section parameter can be the index of the section or its anchor link.
 ```javascript
-/*Scrolling to the section with the anchor link `firstSlide` */
-$.fn.multiscroll.moveTo('firstSlide');
+/*Scrolling to the section with the anchor link `firstSection` */
+$.fn.multiscroll.moveTo('firstSection');
 
 ```
 
@@ -231,7 +235,7 @@ Example:
 			}
 			
 			//using anchorLink
-			if(anchorLink == 'secondSlide'){
+			if(anchorLink == 'secondSection'){
 				alert("Section 2 ended loading");
 			}
 		}
