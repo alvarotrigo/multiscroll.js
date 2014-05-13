@@ -1,6 +1,8 @@
 # multiScroll.js
 
 ![preview](https://raw.github.com/alvarotrigo/multiScroll.js/master/examples/imgs/multiscroll.png)
+![compatibility](http://alvarotrigo.com/multiScroll/imgs/compatible.gif)
+
 A simple plugin to create multi scrolling websites with two vertical scrolling panels.
 
 - [Live demo](http://alvarotrigo.com/multiScroll/)
