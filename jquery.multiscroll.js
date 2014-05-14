@@ -1,5 +1,5 @@
 /**
- * multiscroll.js 0.0.5 Beta
+ * multiscroll.js 0.0.6 Beta
  * https://github.com/alvarotrigo/multiscroll.js
  * MIT licensed
  *
@@ -127,8 +127,7 @@
 			fromTop = sectionIndex  * 100;
 
 			$(this).css({
-				'height': '100%',
-				'display': 'block'
+				'height': '100%'
 			});
 	
 			if(!sectionIndex && options.navigation ){
