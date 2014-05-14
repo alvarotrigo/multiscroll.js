@@ -10,20 +10,11 @@
 	<meta name="Resource-type" content="Document" />
 
 	
-	<link rel="stylesheet" type="text/css" href="jquery.multiscroll.css" />
-	<link rel="stylesheet" type="text/css" href="examples.css" />
-
-	<!--[if IE]>
-		<script type="text/javascript">
-			 var console = { log: function() {} };
-		</script>
-	<![endif]-->
-		
+	<link rel="stylesheet" type="text/css" href="../jquery.multiscroll.css" />		
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script type="text/javascript" src="vendors/jquery.easings.min.js"></script>
+	<script type="text/javascript" src="../vendors/jquery.easings.min.js"></script>
+	<script type="text/javascript" src="../jquery.multiscroll.js"></script>
 
-
-	<script type="text/javascript" src="jquery.multiscroll.js"></script>
 	<script type="text/javascript">
 	 $(document).ready(function() {
             $('#myContainer').multiscroll({
@@ -31,33 +22,59 @@
             	anchors: ['firstSection', 'second', 'third'],
             	menu: '#menu',
             	navigation: true,
-            	navigationTooltips: ['uno', 'dos', 'tres'],
-            	normalScrollElements: '#demo',
+            	navigationTooltips: ['One', 'Two', 'Three'],
             	loopBottom: true,
-            	loopTop: true,
-            	onLeave: function(index, nextIndex, direction){
-            		console.log("onLeave==> index: " + index +" nextIndex: " + nextIndex + " direction: " + direction );
-            	},
-            	afterLoad: function(anchorLink, index){
-					console.log("afterLoad==> anchorLink: " + anchorLink +" index: " + index);
-            	},
-            	afterRender: function(){
-            		console.log("finish rendering");
-            	}
-            });
-
-            $('#pepe').click(function(){
-            	$.fn.multiscroll.moveTo('third');
+            	loopTop: true
             });
         });
     </script>
 
 	<style>
-		#pepe{
+		.ms-section{
+			text-align: center;
+		}
+
+		#menu li {
+			display:inline-block;
+			margin: 10px;
+			color: #000;
+			background:#fff;
+			background: rgba(255,255,255, 0.3);
+			-webkit-border-radius: 10px; 
+		            border-radius: 10px; 
+		}
+		#menu li.active{
+			background:#666;
+			background: rgba(255,255,255, 1);
+			color: #000;
+		}
+		#menu li a{
+			text-decoration:none;
+			color: #000;
+		}
+		#menu li.active a:hover{
+			color: #000;
+		}
+		#menu li:hover{
+			background: rgba(255,255,255, 0.8);
+		}
+		#menu li a,
+		#menu li.active a{
+			padding: 9px 18px;
+			display:block;
+		}
+		#menu li.active a{
+			color: #000;
+		}
+		#menu{
 			position:fixed;
-			top: 100px;
-			left: 50px;
-			z-index: 99999;
+			top:0;
+			left:0;
+			height: 40px;
+			z-index: 70;
+			width: 100%;
+			padding: 0;
+			margin:0;
 		}
 	</style>
 
