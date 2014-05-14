@@ -1,5 +1,5 @@
 /**
- * multiscroll.js 0.0.4 Beta
+ * multiscroll.js 0.0.5 Beta
  * https://github.com/alvarotrigo/multiscroll.js
  * MIT licensed
  *
@@ -13,7 +13,7 @@
 			'verticalCentered' : true,
 			'scrollingSpeed': 700,
 			'easing': 'easeInQuart',
-			'menu': true,
+			'menu': false,
 			'sectionsColor': [],
 			'anchors':[],
 			'navigation': false,
@@ -25,6 +25,7 @@
 			'css3': false,
 			'paddingTop': 0,
 			'paddingBottom': 0,
+			'fixedElements': null,
 			'normalScrollElements': null, 
 			'keyboardScrolling': true,
 			'touchSensitivity': 5,
@@ -188,6 +189,17 @@
 					default:
 						return; // exit this handler for other keys
 				}
+			}
+		});
+
+
+		/**
+		 * Disabling any action when pressing of the mouse wheel (Chrome, IE, Opera, Safari)
+		 */
+		$(document).mousedown(function(e) {
+			if(e.button == 1){
+				e.preventDefault();
+				return false;
 			}
 		});
 
