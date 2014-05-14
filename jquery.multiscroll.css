@@ -27,29 +27,6 @@ html, body {
     width: 100%;
     height: 100%;
 }
-.controlArrow {
-    position: absolute;
-    top: 50%;
-    cursor: pointer;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    margin-top: -38px;
-}
-.controlArrow.prev {
-    left: 15px;
-    width: 0;
-    border-width: 38.5px 34px 38.5px 0;
-    border-color: transparent #fff transparent transparent;
-}
-.controlArrow.next {
-    right: 15px;
-    border-width: 38.5px 0 38.5px 34px;
-    border-color: transparent transparent transparent #fff;
-}
-.scrollable {
-    overflow: scroll;
-}
 .ms-easing {
     -webkit-transition: all 0.7s ease-out;
     -moz-transition: all 0.7s ease-out;
@@ -69,36 +46,18 @@ html, body {
 #multiscroll-nav.left {
     left: 17px;
 }
-.multiscroll-slidesNav {
-    position: absolute;
-    z-index: 4;
-    left: 50%;
-    opacity: 1;
-}
-.multiscroll-slidesNav.bottom {
-    bottom: 17px;
-}
-.multiscroll-slidesNav.top {
-    top: 17px;
-}
-#multiscroll-nav ul,
-.multiscroll-slidesNav ul {
+#multiscroll-nav ul{
   margin: 0;
   padding: 0;
 }
-#multiscroll-nav li,
-.multiscroll-slidesNav li {
+#multiscroll-nav li{
     display: block;
     width: 14px;
     height: 13px;
     margin: 7px;
     position:relative;
 }
-.multiscroll-slidesNav li {
-    display: inline-block;
-}
-#multiscroll-nav li a,
-.multiscroll-slidesNav li a {
+#multiscroll-nav li a{
     display: block;
     position: relative;
     z-index: 1;
@@ -107,12 +66,10 @@ html, body {
     cursor: pointer;
     text-decoration: none;
 }
-#multiscroll-nav li .active span,
-.multiscroll-slidesNav .active span {
+#multiscroll-nav li .active span{
     background: #333;
 }
-#multiscroll-nav span,
-.multiscroll-slidesNav span {
+#multiscroll-nav span{
     top: 2px;
     left: 2px;
     width: 8px;
