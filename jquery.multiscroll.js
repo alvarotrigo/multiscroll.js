@@ -1,5 +1,5 @@
 /**
- * multiscroll.js 0.0.6 Beta
+ * multiscroll.js 0.0.7 Beta
  * https://github.com/alvarotrigo/multiscroll.js
  * MIT licensed
  *
@@ -134,17 +134,24 @@
 				//activating the navigation bullet
 				nav.find('li').eq(sectionIndex).find('a').addClass('active');
 			}
-		}).promise().done(function(){	
-			 $('.ms-right').find('.ms-section').last().addClass('active');
-			 $('.ms-left').find('.ms-section').first().addClass('active');
+		}).promise().done(function(){
+
+			//if no active section is defined, the 1st one will be the default one
+			if(!$('.ms-left .ms-section.active').length){
+				$('.ms-right').find('.ms-section').last().addClass('active');
+				$('.ms-left').find('.ms-section').first().addClass('active');
+			}
 
 			$.isFunction( options.afterRender ) && options.afterRender.call( this);
+
+			//scrolling to the defined active section and adjusting right and left panels
+			silentScroll();
+
+			$(window).on('load', function() {
+				scrollToAnchor();	
+			});
 		});
 
-
-		positionRightPanel();
-
-		
 		
 		//detecting any change on the URL to scroll to the given anchor link
 		//(a way to detect back history button as we play with the hashes on the URL)
@@ -152,11 +159,7 @@
 			var value =  window.location.hash.replace('#', '');
 			var sectionAnchor = value;
 
-			if(isNaN(sectionAnchor)){
-				var section = $('.ms-left').find('[data-anchor="'+sectionAnchor+'"]');
-			}else{
-				var section = $('.ms-left .ms-section').eq( (destiny -1) );
-			} 
+			var section = $('.ms-left').find('[data-anchor="'+sectionAnchor+'"]');
 			
 			var isFirstScrollMove = (typeof lastScrolledDestiny === 'undefined' );
 
@@ -243,11 +246,11 @@
 		function doneResizing() {
 			windowHeight = $(window).height();
 
-			positionRightPanel();
+			silentScroll();
 			$.isFunction( options.afterResize ) && options.afterResize.call( this);
 		}
 
-		function positionRightPanel(){
+		function silentScroll(){
 			//moving the right section to the bottom
 			if(options.css3){
 				transformContainer($('.ms-left'), 'translate3d(0px, -' + $('.ms-left').find('.ms-section.active').position().top + 'px, 0px)', false);
@@ -288,7 +291,7 @@
 			if(isNaN(section)){
 				destiny = $('.ms-left [data-anchor="'+section+'"]');
 			}else{
-				destiny = $('.section').eq( (section -1) );
+				destiny = $('.ms-left .ms-section').eq( (section -1) );
 			}
 			
 			scrollPage(destiny);
@@ -533,6 +536,19 @@
 			return sectionHeight;
 		}
 
+
+		/**
+		* Scrolls the page to the existent anchor in the URL
+		*/
+		function scrollToAnchor(){
+			//getting the anchor link in the URL and deleting the `#`
+			var sectionAnchor =  window.location.hash.replace('#', '');
+			var section = $('.ms-left .ms-section[data-anchor="'+sectionAnchor+'"]');
+
+			if(sectionAnchor.length){  //if theres any #	
+				scrollPage(section);
+			}
+		}
 
 		/**
 		* Adds or remove the possiblity of scrolling through sections by using the keyboard arrow keys
