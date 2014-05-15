@@ -124,7 +124,6 @@
 
 		$('.ms-left .ms-section, .ms-right .ms-section').each(function(){
 			var sectionIndex = $(this).index();
-			fromTop = sectionIndex  * 100;
 
 			$(this).css({
 				'height': '100%'
@@ -361,10 +360,8 @@
 			//flag to avoid callingn `scrollPage()` twice in case of using anchor links
 			lastScrolledDestiny = anchorLink;
 
-			//avoid firing it twice (as it does also on scroll)
 			activateMenuElement(anchorLink);
 			activateNavDots(anchorLink, leftDestinationIndex);
-			
 		}
 
 		/**
@@ -432,6 +429,9 @@
 		}
 
 
+		/**
+		* Returns the transform styles for all browsers
+		*/
 		function getTransforms(translate3d){
 			return {
 				'-webkit-transform': translate3d,
@@ -521,10 +521,16 @@
 			return (has3d !== undefined && has3d.length > 0 && has3d !== "none");
 		}
 
+		/**
+		* Wraps an element in order to center it vertically by using a class style.
+		*/
 		function addTableClass(element){
 			element.addClass('ms-table').wrapInner('<div class="ms-tableCell" style="height: ' + getTableHeight(element) + 'px" />');
 		}
 
+		/**
+		* Gets the height of the section after removing the paddings.
+		*/
 		function getTableHeight(section){
 			var sectionHeight = windowHeight;
 
@@ -616,7 +622,9 @@
 		}
 
 
-
+		/**
+		* Handler to get he coordinates of the starting touch
+		*/
 		function touchStartHandler(event){
 			var e = event.originalEvent;
 			var touchEvents = getEventsPage(e);
