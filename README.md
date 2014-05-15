@@ -60,6 +60,13 @@ The active section by default will be the first section, which is taken as the h
 </div>
 ```
 
+If you want to define a different starting point rather than the first section, just add the class active to the section you want to show on load.
+This should be done for the `ms-righ` and `ms-left` elements.
+
+```javascript
+<div class="ms-section active">Some section</div>
+```
+
 ###Initialization 
 All you need to do is call the plugin inside a `$(document).ready` function:
 
