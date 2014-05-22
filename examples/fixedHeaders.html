@@ -19,18 +19,50 @@
 	<script type="text/javascript">
 	 $(document).ready(function() {
             $('#myContainer').multiscroll({
-            	sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE'],
+            	sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
             	anchors: ['first', 'second', 'third'],
             	menu: '#menu',
-            	navigation: true,
-            	navigationTooltips: ['One', 'Two', 'Three'],
-            	loopBottom: true,
-            	loopTop: true
+            	css3: true,
+            	paddingTop: '70px',
+            	paddingBottom: '70px'
             });
         });
     </script>
+
+
+    <style>
+    h1{
+    	color: #fff;
+    }
+    
+	/* Fixed header and footer.
+	* --------------------------------------- */
+	#header, #footer{
+		position:fixed;
+		height: 50px;
+		display:block;
+		width: 100%;
+		background: #333;
+		z-index:9;
+		text-align:center;
+		color: #f2f2f2;
+		padding: 20px 0 0 0;
+	}
+	
+	#header{
+		top:0px;
+	}
+	#footer{
+		bottom:0px;
+	}
+
+	</style>
 </head>
 <body>
+
+
+<div id="header">Header</div>
+<div id="footer">Footer</div>
 
 
 <ul id="menu">

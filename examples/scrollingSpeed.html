@@ -19,19 +19,21 @@
 	<script type="text/javascript">
 	 $(document).ready(function() {
             $('#myContainer').multiscroll({
-            	sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE'],
+            	sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
             	anchors: ['first', 'second', 'third'],
             	menu: '#menu',
-            	navigation: true,
-            	navigationTooltips: ['One', 'Two', 'Three'],
-            	loopBottom: true,
-            	loopTop: true
+            	scrollingSpeed: 1700
             });
         });
     </script>
+
+    <style>
+    h1{
+    	color: #fff;
+    }
+    </style>
 </head>
 <body>
-
 
 <ul id="menu">
 	<li data-menuanchor="first"><a href="#first">First slide</a></li>
