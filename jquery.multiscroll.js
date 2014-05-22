@@ -1,5 +1,5 @@
 /**
- * multiscroll.js 0.0.7 Beta
+ * multiscroll.js 0.0.8 Beta
  * https://github.com/alvarotrigo/multiscroll.js
  * MIT licensed
  *
@@ -91,6 +91,10 @@
 		$('.ms-left .ms-section, .ms-right .ms-section').each(function(){
 			var sectionIndex = $(this).index();
 
+			if(options.paddingTop || options.paddingBottom){
+				$(this).css('padding', options.paddingTop  + ' 0 ' + options.paddingBottom + ' 0');
+			}
+			
 			if (typeof options.sectionsColor[sectionIndex] !==  'undefined') {
 				$(this).css('background-color', options.sectionsColor[sectionIndex]);
 			}
@@ -128,6 +132,7 @@
 			$(this).css({
 				'height': '100%'
 			});
+			
 	
 			if(!sectionIndex && options.navigation ){
 				//activating the navigation bullet
@@ -423,7 +428,7 @@
 		* Adds a css3 transform property to the container class with or without animation depending on the animated param.
 		*/
 		function transformContainer(container, translate3d, animated){
-			container.toggleClass('easing', animated);
+			container.toggleClass('ms-easing', animated);
 			
 			container.css(getTransforms(translate3d));
 		}
