@@ -1,5 +1,5 @@
 /**
- * multiscroll.js 0.0.8 Beta
+ * multiscroll.js 0.0.9 Beta
  * https://github.com/alvarotrigo/multiscroll.js
  * MIT licensed
  *
@@ -78,7 +78,7 @@
 		});
 
 		$('.ms-right').css({
-			'right': '0',
+			'right': '0.1px', //http://stackoverflow.com/questions/23675457/chrome-and-opera-creating-small-padding-when-using-displaytable
 			'top': '0' 
 		});
 
