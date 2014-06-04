@@ -1,5 +1,5 @@
 /**
- * multiscroll.js 0.0.9 Beta
+ * multiscroll.js 0.1.0 Beta
  * https://github.com/alvarotrigo/multiscroll.js
  * MIT licensed
  *
@@ -74,7 +74,8 @@
 		$('.ms-right, .ms-left').css({
 			'width': '50%',
 			'position': 'absolute',
-			'height': '100%'
+			'height': '100%',
+			'-ms-touch-action': 'none'
 		});
 
 		$('.ms-right').css({
