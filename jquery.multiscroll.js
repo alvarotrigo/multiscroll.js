@@ -1,5 +1,5 @@
 /**
- * multiscroll.js 0.1.0 Beta
+ * multiscroll.js 0.1.1 Beta
  * https://github.com/alvarotrigo/multiscroll.js
  * MIT licensed
  *
@@ -26,7 +26,7 @@
 			'paddingTop': 0,
 			'paddingBottom': 0,
 			'fixedElements': null,
-			'normalScrollElements': null, 
+			'normalScrollElements': null,
 			'keyboardScrolling': true,
 			'touchSensitivity': 5,
 
@@ -35,11 +35,11 @@
 			'onLeave': null,
 			'afterRender': null,
 			'afterResize': null
-		}, options);		
-		
+		}, options);
+
 
 		//Defines the delay to take place before being able to scroll to the next section
-		//BE CAREFUL! Not recommened to change it under 400 for a good behavior in laptops and 
+		//BE CAREFUL! Not recommened to change it under 400 for a good behavior in laptops and
 		//Apple devices (laptops, mouses...)
 		var scrollDelay = 600;
 
@@ -62,7 +62,7 @@
 			'height' : '100%'
 		});
 
-		//creating the navigation dots 
+		//creating the navigation dots
 		if (options.navigation) {
 			$('body').append('<div id="multiscroll-nav"><ul></ul></div>');
 			nav = $('#multiscroll-nav');
@@ -70,7 +70,7 @@
 			nav.css('color', options.navigationColor);
 			nav.addClass(options.navigationPosition);
 		}
-		
+
 		$('.ms-right, .ms-left').css({
 			'width': '50%',
 			'position': 'absolute',
@@ -79,13 +79,13 @@
 		});
 
 		$('.ms-right').css({
-			'right': '0.1px', //http://stackoverflow.com/questions/23675457/chrome-and-opera-creating-small-padding-when-using-displaytable
-			'top': '0' 
+			'right': '1px', //http://stackoverflow.com/questions/23675457/chrome-and-opera-creating-small-padding-when-using-displaytable
+			'top': '0'
 		});
 
 		$('.ms-left').css({
 			'left': '0',
-			'top': '0' 
+			'top': '0'
 		});
 
 
@@ -95,14 +95,14 @@
 			if(options.paddingTop || options.paddingBottom){
 				$(this).css('padding', options.paddingTop  + ' 0 ' + options.paddingBottom + ' 0');
 			}
-			
+
 			if (typeof options.sectionsColor[sectionIndex] !==  'undefined') {
 				$(this).css('background-color', options.sectionsColor[sectionIndex]);
 			}
 
 			if (typeof options.anchors[sectionIndex] !== 'undefined') {
 				$(this).attr('data-anchor', options.anchors[sectionIndex]);
-			}	
+			}
 
 			if(options.verticalCentered){
 				addTableClass($(this));
@@ -133,8 +133,8 @@
 			$(this).css({
 				'height': '100%'
 			});
-			
-	
+
+
 			if(!sectionIndex && options.navigation ){
 				//activating the navigation bullet
 				nav.find('li').eq(sectionIndex).find('a').addClass('active');
@@ -153,11 +153,11 @@
 			silentScroll();
 
 			$(window).on('load', function() {
-				scrollToAnchor();	
+				scrollToAnchor();
 			});
 		});
 
-		
+
 		//detecting any change on the URL to scroll to the given anchor link
 		//(a way to detect back history button as we play with the hashes on the URL)
 		$(window).on('hashchange',function(){
@@ -165,14 +165,14 @@
 			var sectionAnchor = value;
 
 			var section = $('.ms-left').find('[data-anchor="'+sectionAnchor+'"]');
-			
+
 			var isFirstScrollMove = (typeof lastScrolledDestiny === 'undefined' );
 
 			if (isFirstScrollMove || sectionAnchor !== lastScrolledDestiny){
 				scrollPage(section);
 			}
 		});
-		
+
 
 		/**
 		 * Sliding with arrow keys, both, vertical and horizontal
@@ -192,7 +192,7 @@
 					case 34:
 						$.fn.multiscroll.moveSectionDown();
 						break;
-			
+
 					default:
 						return; // exit this handler for other keys
 				}
@@ -210,14 +210,14 @@
 			}
 		});
 
-		//navigation action 
+		//navigation action
 		$(document).on('click', '#multiscroll-nav a', function(e){
 			e.preventDefault();
 			var index = $(this).parent().index();
 			scrollPage($('.ms-left .ms-section').eq(index));
 		});
-		
-		//navigation tooltips 
+
+		//navigation tooltips
 		$(document).on({
 			mouseenter: function(){
 				var tooltip = $(this).data('tooltip');
@@ -233,7 +233,7 @@
 			$(document).on('mouseover', options.normalScrollElements, function () {
 				$.fn.multiscroll.setMouseWheelScrolling(false);
 			});
-			
+
 			$(document).on('mouseout', options.normalScrollElements, function(){
 				$.fn.multiscroll.setMouseWheelScrolling(true);
 			});
@@ -292,13 +292,13 @@
 
 		$.fn.multiscroll.moveTo = function (section){
 			var destiny = '';
-			
+
 			if(isNaN(section)){
 				destiny = $('.ms-left [data-anchor="'+section+'"]');
 			}else{
 				destiny = $('.ms-left .ms-section').eq( (section -1) );
 			}
-			
+
 			scrollPage(destiny);
 		};
 
@@ -326,8 +326,8 @@
 			leftDestination.addClass('active').siblings().removeClass('active');
 
 			// Use CSS3 translate functionality or...
-			if (options.css3){				
-				//callback (onLeave) 
+			if (options.css3){
+				//callback (onLeave)
 				$.isFunction(options.onLeave) && options.onLeave.call(this, leavingSection, (leftDestinationIndex + 1), yMovement);
 
 				var translate3dLeft = 'translate3d(0px, -' + topPos['left'] + 'px, 0px)';
@@ -337,7 +337,7 @@
 				transformContainer($('.ms-right'), translate3dRight, true);
 
 				setTimeout(function () {
-					//callback (afterLoad) 
+					//callback (afterLoad)
 					$.isFunction(options.afterLoad) && options.afterLoad.call(this, anchorLink, (leftDestinationIndex + 1));
 
 					setTimeout(function () {
@@ -345,7 +345,7 @@
 					}, scrollDelay);
 				}, options.scrollingSpeed);
 			}else{
-				//callback (onLeave) 
+				//callback (onLeave)
 				$.isFunction(options.onLeave) && options.onLeave.call(this, leavingSection, (leftDestinationIndex + 1), yMovement);
 
 				$('.ms-left').animate({
@@ -362,7 +362,7 @@
 					'top': -topPos['right']
 				}, options.scrollingSpeed, options.easing);
 			}
-			
+
 			//flag to avoid callingn `scrollPage()` twice in case of using anchor links
 			lastScrolledDestiny = anchorLink;
 
@@ -398,7 +398,7 @@
 
 		/**
 		 * Detecting mousewheel scrolling
-		 * 
+		 *
 		 * http://blogs.sitepointstatic.com/examples/tech/mouse-wheel/index.html
 		 * http://www.sitepoint.com/html5-javascript-mouse-wheel/
 		 */
@@ -420,7 +420,7 @@
 					$.fn.multiscroll.moveSectionUp();
 				}
 			}
-		
+
 
 			return false;
 		}
@@ -430,7 +430,7 @@
 		*/
 		function transformContainer(container, translate3d, animated){
 			container.toggleClass('ms-easing', animated);
-			
+
 			container.css(getTransforms(translate3d));
 		}
 
@@ -453,7 +453,7 @@
 		function activateNavDots(name, sectionIndex){
 			if(options.navigation){
 				$('#multiscroll-nav').find('.active').removeClass('active');
-				if(name){ 
+				if(name){
 					$('#multiscroll-nav').find('a[href="#' + name + '"]').addClass('active');
 				}else{
 					$('#multiscroll-nav').find('li').eq(sectionIndex).find('a').addClass('active');
@@ -483,7 +483,7 @@
 				return 'up';
 			}
 			return 'down';
-		}	
+		}
 
 
 		/**
@@ -497,12 +497,12 @@
 
 
 		/**
-		* Checks for translate3d support 
+		* Checks for translate3d support
 		* @return boolean
 		* http://stackoverflow.com/questions/5661671/detecting-transform-translate3d-support
 		*/
 		function support3d() {
-			var el = document.createElement('p'), 
+			var el = document.createElement('p'),
 				has3d,
 				transforms = {
 					'webkitTransform':'-webkit-transform',
@@ -521,7 +521,7 @@
 					has3d = window.getComputedStyle(el).getPropertyValue(transforms[t]);
 				}
 			}
-			
+
 			document.body.removeChild(el);
 
 			return (has3d !== undefined && has3d.length > 0 && has3d !== "none");
@@ -540,7 +540,7 @@
 		function getTableHeight(section){
 			var sectionHeight = windowHeight;
 
-			if(options.paddingTop || options.paddingBottom){			
+			if(options.paddingTop || options.paddingBottom){
 				var paddings = parseInt(section.css('padding-top')) + parseInt(section.css('padding-bottom'));
 				sectionHeight = (windowHeight - paddings);
 			}
@@ -557,7 +557,7 @@
 			var sectionAnchor =  window.location.hash.replace('#', '');
 			var section = $('.ms-left .ms-section[data-anchor="'+sectionAnchor+'"]');
 
-			if(sectionAnchor.length){  //if theres any #	
+			if(sectionAnchor.length){  //if theres any #
 				scrollPage(section);
 			}
 		}
@@ -570,7 +570,7 @@
 		};
 
 		/**
-		* Adds or remove the possiblity of scrolling through sections by using the mouse wheel or the trackpad. 
+		* Adds or remove the possiblity of scrolling through sections by using the mouse wheel or the trackpad.
 		*/
 		$.fn.multiscroll.setMouseWheelScrolling = function (value){
 			if(value){
@@ -581,7 +581,7 @@
 		};
 
 		/**
-		* Defines the scrolling speed 
+		* Defines the scrolling speed
 		*/
 		$.fn.multiscroll.setScrollingSpeed = function(value){
 		   options.scrollingSpeed = value;
@@ -593,17 +593,17 @@
 		var touchStartX = 0;
 		var touchEndY = 0;
 		var touchEndX = 0;
-	
-		/* Detecting touch events 
-		
+
+		/* Detecting touch events
+
 		* As we are changing the top property of the page on scrolling, we can not use the traditional way to detect it.
 		* This way, the touchstart and the touch moves shows an small difference between them which is the
 		* used one to determine the direction.
-		*/		
+		*/
 		function touchMoveHandler(event){
 			var e = event.originalEvent;
 
-			//preventing the easing on iOS devices 
+			//preventing the easing on iOS devices
 			event.preventDefault();
 
 			var activeSection = $('.ms-left .ms-section.active');
@@ -612,7 +612,7 @@
 				var touchEvents = getEventsPage(e);
 				touchEndY = touchEvents['y'];
 				touchEndX = touchEvents['x'];
-									
+
 
 				//is the movement greater than the minimum resistance to scroll?
 				if (Math.abs(touchStartY - touchEndY) > ($(window).height() / 100 * options.touchSensitivity)) {
@@ -646,7 +646,7 @@
 			$(document).off('touchstart MSPointerDown').on('touchstart MSPointerDown', touchStartHandler);
 			$(document).off('touchmove MSPointerMove').on('touchmove MSPointerMove', touchMoveHandler);
 		}
-		
+
 		/**
 		* Removes the auto scrolling for touch devices.
 		*/
@@ -672,5 +672,5 @@
 			return events;
 		}
 
-	};	
+	};
 })(jQuery);
