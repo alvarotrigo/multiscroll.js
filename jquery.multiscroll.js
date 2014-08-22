@@ -1,5 +1,5 @@
 /**
- * multiscroll.js 0.1.1 Beta
+ * multiscroll.js 0.1.2 Beta
  * https://github.com/alvarotrigo/multiscroll.js
  * MIT licensed
  *
@@ -43,6 +43,7 @@
 		//Apple devices (laptops, mouses...)
 		var scrollDelay = 600;
 
+		var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
 		var numberSections = $('.ms-left').find('.ms-section').length;
 		var isMoving = false;
 		var nav;
@@ -643,16 +644,20 @@
 		* Adds the possibility to auto scroll through sections on touch devices.
 		*/
 		function addTouchHandler(){
-			$(document).off('touchstart MSPointerDown').on('touchstart MSPointerDown', touchStartHandler);
-			$(document).off('touchmove MSPointerMove').on('touchmove MSPointerMove', touchMoveHandler);
+			if(isTouch){
+				$(document).off('touchstart MSPointerDown').on('touchstart MSPointerDown', touchStartHandler);
+				$(document).off('touchmove MSPointerMove').on('touchmove MSPointerMove', touchMoveHandler);
+			}
 		}
 
 		/**
 		* Removes the auto scrolling for touch devices.
 		*/
 		function removeTouchHandler(){
-			$(document).off('touchstart MSPointerDown');
-			$(document).off('touchmove MSPointerMove');
+			if(isTouch){
+				$(document).off('touchstart MSPointerDown');
+				$(document).off('touchmove MSPointerMove');
+			}
 		}
 
 		/**
