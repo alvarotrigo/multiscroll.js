@@ -80,7 +80,7 @@ $(document).ready(function() {
 A more complex initialization with all options set could look like this:
 ```javascript
 $(document).ready(function() {
-	$('#multiscroll').multiscroll{
+	$('#multiscroll').multiscroll({
 		verticalCentered : true,
 		scrollingSpeed: 700,
 		easing: 'easeInQuart',
