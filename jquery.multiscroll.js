@@ -251,7 +251,9 @@
 		 */
 		function doneResizing() {
 			windowHeight = $(window).height();
-
+			$('.ms-tableCell').each(function() {
+				$(this).css({ height: getTableHeight($(this).parent()) });
+			});
 			silentScroll();
 			$.isFunction( options.afterResize ) && options.afterResize.call( this);
 		}
