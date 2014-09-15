@@ -1,5 +1,5 @@
 /**
- * multiscroll.js 0.1.2 Beta
+ * multiscroll.js 0.1.3 Beta
  * https://github.com/alvarotrigo/multiscroll.js
  * MIT licensed
  *
@@ -165,12 +165,14 @@
 			var value =  window.location.hash.replace('#', '');
 			var sectionAnchor = value;
 
-			var section = $('.ms-left').find('[data-anchor="'+sectionAnchor+'"]');
+			if(sectionAnchor.length){
+				var section = $('.ms-left').find('[data-anchor="'+sectionAnchor+'"]');
 
-			var isFirstScrollMove = (typeof lastScrolledDestiny === 'undefined' );
+				var isFirstScrollMove = (typeof lastScrolledDestiny === 'undefined' );
 
-			if (isFirstScrollMove || sectionAnchor !== lastScrolledDestiny){
-				scrollPage(section);
+				if (isFirstScrollMove || sectionAnchor !== lastScrolledDestiny){
+					scrollPage(section);
+				}
 			}
 		});
 
@@ -496,6 +498,7 @@
 			if(options.anchors.length){
 				location.hash = anchorLink;
 			}
+
 		}
 
 
