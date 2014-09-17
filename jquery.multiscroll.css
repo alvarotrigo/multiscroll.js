@@ -1,5 +1,5 @@
 /**
- * multiscroll 0.0.5 Beta
+ * multiscroll 0.0.6 Beta
  * https://github.com/alvarotrigo/multiscroll.js
  * MIT licensed
  *
@@ -88,6 +88,8 @@ html, body {
     font-size: 14px;
     font-family: arial, helvetica, sans-serif;
     top: -2px;
+    white-space: nowrap;
+    max-width: 220px;
 }
 .multiscroll-tooltip.right {
     right: 20px;

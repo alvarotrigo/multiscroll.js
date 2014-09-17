@@ -1,11 +1,11 @@
 {
   "name": "multiscroll.js",
-  "version": "0.0.7",
+  "version": "0.1.4",
   "homepage": "http://alvarotrigo.com/multiScroll/",
   "authors": [
     "Alvaro Trigo https://github.com/alvarotrigo"
   ],
-  "description": "Create  beautiful fullscreen scrolling websites",
+  "description": "Create  beautiful fullscreen multi-scrolling websites",
   "main": [
       "jquery.multiscroll.js",
       "jquery.multiscroll.css"
@@ -27,10 +27,11 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "examples"
   ],
   "dependencies": {
-      "jQuery": "latest",
+      "jquery": "latest",
       "jquery.ui": "latest"
     }
 }

@@ -1,5 +1,5 @@
 /**
- * multiscroll.js 0.1.3 Beta
+ * multiscroll.js 0.1.4 Beta
  * https://github.com/alvarotrigo/multiscroll.js
  * MIT licensed
  *
@@ -81,12 +81,16 @@
 
 		$('.ms-right').css({
 			'right': '1px', //http://stackoverflow.com/questions/23675457/chrome-and-opera-creating-small-padding-when-using-displaytable
-			'top': '0'
+			'top': '0',
+			'-ms-touch-action': 'none',
+			'touch-action': 'none'
 		});
 
 		$('.ms-left').css({
 			'left': '0',
-			'top': '0'
+			'top': '0',
+			'-ms-touch-action': 'none',
+			'touch-action': 'none'
 		});
 
 
@@ -181,6 +185,8 @@
 		 * Sliding with arrow keys, both, vertical and horizontal
 		 */
 		$(document).keydown(function(e) {
+			e.preventDefault();
+
 			//Moving the main page with the keyboard arrows if keyboard scrolling is enabled
 			if (options.keyboardScrolling && !isMoving) {
 				switch (e.which) {
@@ -194,6 +200,16 @@
 					case 40:
 					case 34:
 						$.fn.multiscroll.moveSectionDown();
+						break;
+
+					//Home
+					case 36:
+						$.fn.multiscroll.moveTo(1);
+						break;
+
+					//End
+					case 35:
+						$.fn.multiscroll.moveTo( $('.ms-left .ms-section').length );
 						break;
 
 					default:
@@ -227,17 +243,19 @@
 				$('<div class="multiscroll-tooltip ' + options.navigationPosition +'">' + tooltip + '</div>').hide().appendTo($(this)).fadeIn(200);
 			},
 			mouseleave: function(){
-				$(this).find('.multiscroll-tooltip').fadeOut().remove();
+				$(this).find('.multiscroll-tooltip').fadeOut(200, function() {
+					$(this).remove();
+				});
 			}
 		}, '#multiscroll-nav li');
 
 
 		if(options.normalScrollElements){
-			$(document).on('mouseover', options.normalScrollElements, function () {
+			$(document).on('mouseenter', options.normalScrollElements, function () {
 				$.fn.multiscroll.setMouseWheelScrolling(false);
 			});
 
-			$(document).on('mouseout', options.normalScrollElements, function(){
+			$(document).on('mouseleave', options.normalScrollElements, function(){
 				$.fn.multiscroll.setMouseWheelScrolling(true);
 			});
 		}
@@ -650,8 +668,11 @@
 		*/
 		function addTouchHandler(){
 			if(isTouch){
-				$(document).off('touchstart MSPointerDown').on('touchstart MSPointerDown', touchStartHandler);
-				$(document).off('touchmove MSPointerMove').on('touchmove MSPointerMove', touchMoveHandler);
+				//Microsoft pointers
+				MSPointer = getMSPointer();
+
+				$(document).off('touchstart ' +  MSPointer.down).on('touchstart ' + MSPointer.down, touchStartHandler);
+				$(document).off('touchmove ' + MSPointer.move).on('touchmove ' + MSPointer.move, touchMoveHandler);
 			}
 		}
 
@@ -660,9 +681,32 @@
 		*/
 		function removeTouchHandler(){
 			if(isTouch){
-				$(document).off('touchstart MSPointerDown');
-				$(document).off('touchmove MSPointerMove');
+				//Microsoft pointers
+				MSPointer = getMSPointer();
+
+				$(document).off('touchstart ' + MSPointer.down);
+				$(document).off('touchmove ' + MSPointer.move);
 			}
+		}
+
+		/*
+		* Returns and object with Microsoft pointers (for IE<11 and for IE >= 11)
+		* http://msdn.microsoft.com/en-us/library/ie/dn304886(v=vs.85).aspx
+		*/
+		function getMSPointer(){
+			var pointer;
+
+			//IE >= 11
+			if(window.PointerEvent){
+				pointer = { down: "pointerdown", move: "pointermove"};
+			}
+
+			//IE < 11
+			else{
+				pointer = { down: "MSPointerDown", move: "MSPointerMove"};
+			}
+
+			return pointer;
 		}
 
 		/**
