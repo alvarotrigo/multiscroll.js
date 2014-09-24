@@ -9,6 +9,7 @@ A simple plugin to create multi scrolling websites with two vertical scrolling p
 - [Website](http://alvarotrigo.com/blog/multiscroll-js-jquery-plugin-to-create-multi-scrolling-sites-with-two-vertical-layouts/)
 
 Some sites using a similar effects:
+- http://www.reverzo.tymberry.com/
 - http://www.skodayeti.pl
 - http://coffeesurfing.illy.com/wps/wcm/connect/cs_en/home
 - http://wandaprint.com/home/
