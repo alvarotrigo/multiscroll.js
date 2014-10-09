@@ -1,5 +1,5 @@
 /**
- * multiscroll.js 0.1.4 Beta
+ * multiscroll.js 0.1.5 Beta
  * https://github.com/alvarotrigo/multiscroll.js
  * MIT licensed
  *
@@ -185,7 +185,9 @@
 		 * Sliding with arrow keys, both, vertical and horizontal
 		 */
 		$(document).keydown(function(e) {
-			e.preventDefault();
+			if(e.which == 40 || e.which == 38){
+				e.preventDefault();
+			}
 
 			//Moving the main page with the keyboard arrows if keyboard scrolling is enabled
 			if (options.keyboardScrolling && !isMoving) {
