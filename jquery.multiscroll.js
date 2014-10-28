@@ -174,7 +174,7 @@
 
 				var isFirstScrollMove = (typeof lastScrolledDestiny === 'undefined' );
 
-				if (isFirstScrollMove || sectionAnchor !== lastScrolledDestiny){
+				if (isFirstScrollMove || sectionAnchor !== lastScrolledDestiny.toString()){
 					scrollPage(section);
 				}
 			}
