@@ -23,8 +23,8 @@ Customizations of the plugin available upon request for some reasonable price. <
 ## Introduction
 This plugin its in Beta version. Suggestion are more than welcome, not only for feature requests but also for coding style improvements.
 
-## Compatibility 
-multiScroll.js is fully functional on all modern browsers, as well as some old ones such as Internet Explorer 8, 9, Opera 12... 
+## Compatibility
+multiScroll.js is fully functional on all modern browsers, as well as some old ones such as Internet Explorer 8, 9, Opera 12...
 It works with browsers with CSS3 support and with the ones who don't have it, making it ideal for old browsers compatibility.
 It is designed to work as well on touch devices such as mobile phones or tablets.
 
@@ -39,7 +39,7 @@ As you can see in the example files, you will need to include the JavaScript fil
 
 <!-- This following line is needed in case of using the default easing option or when using another
  one rather than "linear" or "swing". You can also add the full jQuery UI instead of this file if you prefer -->
-<script src="vendors/jquery.easings.min.js"></script>	
+<script src="vendors/jquery.easings.min.js"></script>
 
 <script type="text/javascript" src="jquery.multiscroll.js"></script>
 ```
@@ -69,7 +69,7 @@ This should be done for the `ms-righ` and `ms-left` elements.
 <div class="ms-section active">Some section</div>
 ```
 
-###Initialization 
+###Initialization
 All you need to do is call the plugin inside a `$(document).ready` function:
 
 ```javascript
@@ -96,7 +96,7 @@ $(document).ready(function() {
 		css3: false,
 		paddingTop: 0,
 		paddingBottom: 0,
-		normalScrollElements: null, 
+		normalScrollElements: null,
 		keyboardScrolling: true,
 		touchSensitivity: 5,
 
@@ -110,7 +110,7 @@ $(document).ready(function() {
 ```
 
 #### Using anchor links
-In order to create links to certain sections, if you are using multiscroll.js with anchor links for the sections (using the `anchors` option), then you will be able to use anchor links also to navigate directly to a certain section by using the URL. 
+In order to create links to certain sections, if you are using multiscroll.js with anchor links for the sections (using the `anchors` option), then you will be able to use anchor links also to navigate directly to a certain section by using the URL.
 
 You can do it by creating accessing to the URL by adding the anchor. For example: `http://youriste.com/#secondSection`.
 
@@ -124,8 +124,8 @@ You can also use the `menu` option and make use of anchor links (#) as explained
 
 - `scrollingSpeed`: (default `700`) Speed in miliseconds for the scrolling transitions.
 
-- `sectionsColor`:(default `none`) Define the CSS `background-color` property for each section: 
-Example: 
+- `sectionsColor`:(default `none`) Define the CSS `background-color` property for each section:
+Example:
 ```javascript
 $('#multiscroll').multiscroll({
     sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000'],
@@ -143,7 +143,7 @@ It requieres the file `vendors/jquery.easings.min.js` or [jQuery UI](http://jque
 
 - `css3`: (default `false`). Defines wheter to use JavaScript or CSS3 transforms to scroll within sections. Useful to speed up the movement in tablet and mobile devices with browsers supporting CSS3. If this option is set to `true` and the browser doesn't support CSS3, a jQuery fallback will be used instead.
 
-- `paddingTop`: (default `0`) Defines the top padding for each section with a numerical value and its measure (paddingTop: '10px', paddingTop: '10em'...) Useful in case of using a fixed header. 
+- `paddingTop`: (default `0`) Defines the top padding for each section with a numerical value and its measure (paddingTop: '10px', paddingTop: '10em'...) Useful in case of using a fixed header.
 
 - `paddingBottom`: (default `0`) Defines the bottom padding for each section with a numerical value and its measure (paddingBottom: '10px', paddingBottom: '10em'...). Useful in case of using a fixed footer.
 
@@ -171,7 +171,7 @@ $('#multiscroll').multiscroll({
 });
 ```
 
-- `navigation`: (default `false`) If set to `true`, it will show a navigation bar made up of small circles. 
+- `navigation`: (default `false`) If set to `true`, it will show a navigation bar made up of small circles.
 
 - `navigationPosition`: (default `none`) It can be set to `left` or `right` and defines which position the navigation bar will be shown (if using one).
 
@@ -202,7 +202,7 @@ $.fn.multiscroll.moveTo('firstSection');
 
 ```javascript
 //Scrolling to the 3rd section in the site
-$.fn.multiscroll.moveTo(3); 
+$.fn.multiscroll.moveTo(3);
 ```
 
 ### setAllowScrolling
@@ -231,7 +231,7 @@ $.fn.multiscroll.setScrollingSpeed(700);
 
 ## Callbacks
 ###afterLoad (`anchorLink`, `index`)
-Callback fired once the sections have been loaded, after the scrolling has ended. 
+Callback fired once the sections have been loaded, after the scrolling has ended.
 Parameters:
 
 - `anchorLink`: anchorLink corresponding to the section.
@@ -244,13 +244,13 @@ Example:
 ```javascript
 	$('#multiscroll').multiscroll({
 		anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
-	
+
 		afterLoad: function(anchorLink, index){
 			//using index
 			if(index == '3'){
 				alert("Section 3 ended loading");
 			}
-			
+
 			//using anchorLink
 			if(anchorLink == 'secondSection'){
 				alert("Section 2 ended loading");
@@ -260,7 +260,7 @@ Example:
 ```
 
 ###onLeave (`index`, `nextIndex`, `direction`)
-This callback is fired once the user leaves a section, in the transition to the new section. 
+This callback is fired once the user leaves a section, in the transition to the new section.
 
 Parameters:
 
@@ -271,13 +271,13 @@ Parameters:
 Example:
 
 ```javascript
-	$('#multiscroll').multiscroll({	
+	$('#multiscroll').multiscroll({
 		onLeave: function(index, direction){
 			//after leaving section 2
 			if(index == '2' && direction =='down'){
 				alert("Going to section 3!");
 			}
-			
+
 			else if(index == '2' && direction == 'up'){
 				alert("Going to section 1!");
 			}
@@ -317,6 +317,7 @@ Example:
 ## Who is using multiscroll.js
 If you want your page to be listed here. Please <a href="mailto:alvaro@alvarotrigo.com">contact me</a> with the URL
 
+- http://homecoming.nust.edu.pk/
 - http://www.proviotic.com/
 - http://noisacco.fr/mumm/#first
 
