@@ -11,7 +11,7 @@ A simple plugin to create multi scrolling websites with two vertical scrolling p
 Some sites using a similar effects:
 - http://www.reverzo.tymberry.com/
 - http://www.skodayeti.pl
-- http://coffeeesurfing.illy.com/wps/wcm/connect/cs_en/home
+- http://coffeesurfing.illy.com/wps/wcm/connect/cs_en/home
 - http://wandaprint.com/home/
 - http://www.puma.com/actvrcvr/
 
