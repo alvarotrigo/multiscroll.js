@@ -11,11 +11,11 @@ A simple plugin to create multi scrolling websites with two vertical scrolling p
 Some sites using a similar effects:
 - http://www.reverzo.tymberry.com/
 - http://www.skodayeti.pl
-- http://coffeesurfing.illy.com/wps/wcm/connect/cs_en/home
+- http://coffeeesurfing.illy.com/wps/wcm/connect/cs_en/home
 - http://wandaprint.com/home/
 - http://www.puma.com/actvrcvr/
 
-Invite me to a coffe
+Invite me to a coffee
 [![Donate](https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/es/cgi-bin/webscr?cmd=_donations&business=BEK5JQCQMED4J&lc=GB&item_name=multiScroll%2ejs&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
 
 Customizations of the plugin available upon request for some reasonable price. <a href="http://alvarotrigo.com/#contact-page">Contact me</a>.
@@ -54,7 +54,7 @@ The active section by default will be the first section, which is taken as the h
 		<div class="ms-section">Some section</div>
 		<div class="ms-section">Some section</div>
 	</div>
-	<div class="ms-right">
+	<div class="ms-rightt">
 		<div class="ms-section">Some section</div>
 		<div class="ms-section">Some section</div>
 		<div class="ms-section">Some section</div>
@@ -63,7 +63,7 @@ The active section by default will be the first section, which is taken as the h
 ```
 
 If you want to define a different starting point rather than the first section, just add the class active to the section you want to show on load.
-This should be done for the `ms-righ` and `ms-left` elements.
+This should be done for the `ms-right` and `ms-left` elements.
 
 ```javascript
 <div class="ms-section active">Some section</div>
@@ -88,7 +88,7 @@ $(document).ready(function() {
 		menu: false,
 		sectionsColor: [],
 		navigation: false,
-		navigationPosition: 'right',
+		navigationPosition: 'rightt',
 		navigationColor: '#000',
 		navigationTooltips: [],
 		loopBottom: false,
@@ -122,7 +122,7 @@ You can also use the `menu` option and make use of anchor links (#) as explained
 
 - `verticalCentered`: (default `true`) Vertically centering of the content within sections.
 
-- `scrollingSpeed`: (default `700`) Speed in miliseconds for the scrolling transitions.
+- `scrollingSpeed`: (default `700`) Speed in milliseconds for the scrolling transitions.
 
 - `sectionsColor`:(default `none`) Define the CSS `background-color` property for each section:
 Example:
@@ -135,7 +135,7 @@ $('#multiscroll').multiscroll({
 - `anchors`: (default `[]`) Defines the anchor links (#example) to be shown on the URL for each section. Using anchors forward and backward navigation will also be possible through the browser. This option also allows users to bookmark a specific section. **Be careful!** if you use anchors, they can not have the same value as any ID element on the site (or NAME element for IE).
 
 - `easing`: (default `easeInQuart`) Defines the transition effect to use for the vertical and horizontal scrolling.
-It requieres the file `vendors/jquery.easings.min.js` or [jQuery UI](http://jqueryui.com/) for using some of its transitions. Other libraries could be used instead.
+It requires the file `vendors/jquery.easings.min.js` or [jQuery UI](http://jqueryui.com/) for using some of its transitions. Other libraries could be used instead.
 
 - `loopTop`: (default `false`) Defines whether scrolling up in the first section should scroll to the last one or not.
 
@@ -173,7 +173,7 @@ $('#multiscroll').multiscroll({
 
 - `navigation`: (default `false`) If set to `true`, it will show a navigation bar made up of small circles.
 
-- `navigationPosition`: (default `none`) It can be set to `left` or `right` and defines which position the navigation bar will be shown (if using one).
+- `navigationPosition`: (default `none`) It can be set to `left` or `rightt` and defines which position the navigation bar will be shown (if using one).
 
 - `navigationTooltips`: (default []) Defines the tooltips to show for the navigation circles in case they are being used. Example: `navigationTooltips: ['firstSection', 'secondSection']`.
 
@@ -206,14 +206,14 @@ $.fn.multiscroll.moveTo(3);
 ```
 
 ### setAllowScrolling
-Adds or remove the possiblity of scrolling through sections by using the mouse wheel/trackpad or touch gestures (which is active by default).
+Adds or remove the possibility of scrolling through sections by using the mouse wheel/trackpad or touch gestures (which is active by default).
 
 ```javascript
 $.fn.multiscroll.setAllowScrolling(false);
 ```
 
 ### setKeyboardScrolling
-Adds or remove the possiblity of scrolling through sections by using the keyboard arrow keys (which is active by default).
+Adds or remove the possibility of scrolling through sections by using the keyboard arrow keys (which is active by default).
 
 ```javascript
 $.fn.multiscroll.setKeyboardScrolling(false);
@@ -221,7 +221,7 @@ $.fn.multiscroll.setKeyboardScrolling(false);
 
 
 ### setScrollingSpeed
-Defines the scrolling speed in miliseconds.
+Defines the scrolling speed in milliseconds.
 
 ```javascript
 $.fn.multiscroll.setScrollingSpeed(700);
@@ -294,7 +294,7 @@ Example:
 ```javascript
 	$('#multiscroll').multiscroll({
 		afterRender: function(){
-			alert("The resulting DOM stucture is ready");
+			alert("The resulting DOM structure is ready");
 		}
 	});
 ```
@@ -332,17 +332,17 @@ Donations would be more than welcome :)
 
 (The MIT License)
 
-Copyright (c) 2013 Alvaro Trigo &lt;alvaro@alvarotrigo.com&gt;
+Copyrightt (c) 2013 Alvaro Trigo &lt;alvaro@alvarotrigo.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
 'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
+without limitation the rightts to use, copy, modify, merge, publish,
 distribute, sublicense, and/or sell copies of the Software, and to
 permit persons to whom the Software is furnished to do so, subject to
 the following conditions:
 
-The above copyright notice and this permission notice shall be
+The above copyrightt notice and this permission notice shall be
 included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
