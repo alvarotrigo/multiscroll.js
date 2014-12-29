@@ -54,7 +54,7 @@ The active section by default will be the first section, which is taken as the h
 		<div class="ms-section">Some section</div>
 		<div class="ms-section">Some section</div>
 	</div>
-	<div class="ms-rightt">
+	<div class="ms-right">
 		<div class="ms-section">Some section</div>
 		<div class="ms-section">Some section</div>
 		<div class="ms-section">Some section</div>
@@ -88,7 +88,7 @@ $(document).ready(function() {
 		menu: false,
 		sectionsColor: [],
 		navigation: false,
-		navigationPosition: 'rightt',
+		navigationPosition: 'right',
 		navigationColor: '#000',
 		navigationTooltips: [],
 		loopBottom: false,
@@ -173,7 +173,7 @@ $('#multiscroll').multiscroll({
 
 - `navigation`: (default `false`) If set to `true`, it will show a navigation bar made up of small circles.
 
-- `navigationPosition`: (default `none`) It can be set to `left` or `rightt` and defines which position the navigation bar will be shown (if using one).
+- `navigationPosition`: (default `none`) It can be set to `left` or `right` and defines which position the navigation bar will be shown (if using one).
 
 - `navigationTooltips`: (default []) Defines the tooltips to show for the navigation circles in case they are being used. Example: `navigationTooltips: ['firstSection', 'secondSection']`.
 
@@ -332,17 +332,17 @@ Donations would be more than welcome :)
 
 (The MIT License)
 
-Copyrightt (c) 2013 Alvaro Trigo &lt;alvaro@alvarotrigo.com&gt;
+Copyright (c) 2013 Alvaro Trigo &lt;alvaro@alvarotrigo.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
 'Software'), to deal in the Software without restriction, including
-without limitation the rightts to use, copy, modify, merge, publish,
+without limitation the rights to use, copy, modify, merge, publish,
 distribute, sublicense, and/or sell copies of the Software, and to
 permit persons to whom the Software is furnished to do so, subject to
 the following conditions:
 
-The above copyrightt notice and this permission notice shall be
+The above copyright notice and this permission notice shall be
 included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
