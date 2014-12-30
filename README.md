@@ -15,7 +15,7 @@ Some sites using a similar effects:
 - http://wandaprint.com/home/
 - http://www.puma.com/actvrcvr/
 
-Invite me to a coffe
+Invite me to a coffee
 [![Donate](https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/es/cgi-bin/webscr?cmd=_donations&business=BEK5JQCQMED4J&lc=GB&item_name=multiScroll%2ejs&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
 
 Customizations of the plugin available upon request for some reasonable price. <a href="http://alvarotrigo.com/#contact-page">Contact me</a>.
@@ -63,7 +63,7 @@ The active section by default will be the first section, which is taken as the h
 ```
 
 If you want to define a different starting point rather than the first section, just add the class active to the section you want to show on load.
-This should be done for the `ms-righ` and `ms-left` elements.
+This should be done for the `ms-right` and `ms-left` elements.
 
 ```javascript
 <div class="ms-section active">Some section</div>
@@ -122,7 +122,7 @@ You can also use the `menu` option and make use of anchor links (#) as explained
 
 - `verticalCentered`: (default `true`) Vertically centering of the content within sections.
 
-- `scrollingSpeed`: (default `700`) Speed in miliseconds for the scrolling transitions.
+- `scrollingSpeed`: (default `700`) Speed in milliseconds for the scrolling transitions.
 
 - `sectionsColor`:(default `none`) Define the CSS `background-color` property for each section:
 Example:
@@ -135,7 +135,7 @@ $('#multiscroll').multiscroll({
 - `anchors`: (default `[]`) Defines the anchor links (#example) to be shown on the URL for each section. Using anchors forward and backward navigation will also be possible through the browser. This option also allows users to bookmark a specific section. **Be careful!** if you use anchors, they can not have the same value as any ID element on the site (or NAME element for IE).
 
 - `easing`: (default `easeInQuart`) Defines the transition effect to use for the vertical and horizontal scrolling.
-It requieres the file `vendors/jquery.easings.min.js` or [jQuery UI](http://jqueryui.com/) for using some of its transitions. Other libraries could be used instead.
+It requires the file `vendors/jquery.easings.min.js` or [jQuery UI](http://jqueryui.com/) for using some of its transitions. Other libraries could be used instead.
 
 - `loopTop`: (default `false`) Defines whether scrolling up in the first section should scroll to the last one or not.
 
@@ -206,14 +206,14 @@ $.fn.multiscroll.moveTo(3);
 ```
 
 ### setAllowScrolling
-Adds or remove the possiblity of scrolling through sections by using the mouse wheel/trackpad or touch gestures (which is active by default).
+Adds or remove the possibility of scrolling through sections by using the mouse wheel/trackpad or touch gestures (which is active by default).
 
 ```javascript
 $.fn.multiscroll.setAllowScrolling(false);
 ```
 
 ### setKeyboardScrolling
-Adds or remove the possiblity of scrolling through sections by using the keyboard arrow keys (which is active by default).
+Adds or remove the possibility of scrolling through sections by using the keyboard arrow keys (which is active by default).
 
 ```javascript
 $.fn.multiscroll.setKeyboardScrolling(false);
@@ -221,7 +221,7 @@ $.fn.multiscroll.setKeyboardScrolling(false);
 
 
 ### setScrollingSpeed
-Defines the scrolling speed in miliseconds.
+Defines the scrolling speed in milliseconds.
 
 ```javascript
 $.fn.multiscroll.setScrollingSpeed(700);
@@ -294,7 +294,7 @@ Example:
 ```javascript
 	$('#multiscroll').multiscroll({
 		afterRender: function(){
-			alert("The resulting DOM stucture is ready");
+			alert("The resulting DOM structure is ready");
 		}
 	});
 ```
