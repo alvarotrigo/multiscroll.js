@@ -187,7 +187,9 @@
 
 		//detecting any change on the URL to scroll to the given anchor link
 		//(a way to detect back history button as we play with the hashes on the URL)
-		$(window).on('hashchange',function(){
+		$(window).on('hashchange', hashChangeHandler);
+
+		function hashChangeHandler(){
 			var value =  window.location.hash.replace('#', '');
 			var sectionAnchor = value;
 
@@ -200,7 +202,7 @@
 					scrollPage(section);
 				}
 			}
-		});
+		};
 
 
 		/**
@@ -255,6 +257,7 @@
 
 		//navigation action
 		$(document).on('click', '#multiscroll-nav a', function(e){
+			console.log('click epta');
 			e.preventDefault();
 			var index = $(this).parent().index();
 			scrollPage($('.ms-left .ms-section').eq(index));
@@ -286,9 +289,10 @@
 
 
 		//when resizing the site, we adjust the heights of the sections
-		$(window).resize(function() {
-			doneResizing();
-		});
+		// $(window).resize(function() {
+		// 	doneResizing();
+		// });
+		$(window).on('resize', doneResizing);
 
 		/**
 		 * When resizing is finished, we adjust the slides sizes and positions
@@ -632,7 +636,7 @@
 		* Defines the scrolling speed
 		*/
 		$.fn.multiscroll.setScrollingSpeed = function(value){
-			 options.scrollingSpeed = value;
+			options.scrollingSpeed = value;
 		};
 
 
@@ -749,6 +753,26 @@
 
 			return events;
 		}
+
+		/**
+		* Destroys multisscroll.js plugin events
+		*/
+		$.fn.multiscroll.destroy = function() {
+			$.fn.multiscroll.setKeyboardScrolling(false);
+			$.fn.multiscroll.setMouseWheelScrolling(false);
+
+			$(window)
+        .off('hashchange', hashChangeHandler)
+        .off('resize', doneResizing);
+
+			$(document)
+				.off('mouseenter click', '#multiscroll-nav li')
+				.off('mouseleave click', '#multiscroll-nav li')
+				.off('click', '#multiscroll-nav a')
+				.off('mouseover mouseenter', options.normalScrollElements)
+				.off('mouseout mouseleave', options.normalScrollElements);
+
+		};
 
 	};
 })(jQuery);
