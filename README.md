@@ -100,6 +100,11 @@ $(document).ready(function() {
 		keyboardScrolling: true,
 		touchSensitivity: 5,
 
+		// Custom selectors
+		'sectionSelector': '.ms-section',
+		'leftSelector': '.ms-left',
+		'rightSelector': '.ms-right',
+
 		//events
 		onLeave: function(index, nextIndex, direction){},
 		afterLoad: function(anchorLink, index){},
@@ -177,6 +182,11 @@ $('#multiscroll').multiscroll({
 
 - `navigationTooltips`: (default []) Defines the tooltips to show for the navigation circles in case they are being used. Example: `navigationTooltips: ['firstSection', 'secondSection']`.
 
+- `sectionSelector`: (default `.ms-section`) You can use own class name for section.
+
+- `leftSelector`: (default `.ms-left`) You can use own class name for left block.
+
+- `rightSelector`: (default `.ms-right`) You can use own class name for right block.
 
 ## Methods
 
