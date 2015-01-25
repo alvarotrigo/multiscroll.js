@@ -30,6 +30,11 @@
 			'keyboardScrolling': true,
 			'touchSensitivity': 5,
 
+			// Custom selectors
+			'sectionSelector': '.ms-section',
+			'leftSelector': '.ms-left',
+			'rightSelector': '.ms-right',
+
 			//events
 			'afterLoad': null,
 			'onLeave': null,
@@ -44,6 +49,16 @@
 		var scrollDelay = 600;
 
 		var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
+
+		// adding class namef for right and left blocks
+		if (options.rightSelector !== '.ms-right') {
+			$(options.rightSelector).addClass('ms-right');
+		}
+
+		if (options.leftSelector !== '.ms-left') {
+			$(options.leftSelector).addClass('ms-left');
+		}
+
 		var numberSections = $('.ms-left').find('.ms-section').length;
 		var isMoving = false;
 		var nav;
@@ -62,6 +77,13 @@
 			'overflow' : 'hidden',
 			'height' : '100%'
 		});
+
+		//adding class names to each sections
+		if (options.sectionSelector !== '.ms-section') {
+			$(options.sectionSelector).each(function(){
+					$(this).addClass('ms-section');
+			});
+		}
 
 		//creating the navigation dots
 		if (options.navigation) {
@@ -610,7 +632,7 @@
 		* Defines the scrolling speed
 		*/
 		$.fn.multiscroll.setScrollingSpeed = function(value){
-		   options.scrollingSpeed = value;
+			 options.scrollingSpeed = value;
 		};
 
 
