@@ -289,9 +289,6 @@
 
 
 		//when resizing the site, we adjust the heights of the sections
-		// $(window).resize(function() {
-		// 	doneResizing();
-		// });
 		$(window).on('resize', doneResizing);
 
 		/**
@@ -755,23 +752,37 @@
 		}
 
 		/**
-		* Destroys multisscroll.js plugin events
+		* Destroy multiscroll.js plugin's events
 		*/
 		$.fn.multiscroll.destroy = function() {
 			$.fn.multiscroll.setKeyboardScrolling(false);
 			$.fn.multiscroll.setMouseWheelScrolling(false);
 
 			$(window)
-        .off('hashchange', hashChangeHandler)
-        .off('resize', doneResizing);
+				.off('hashchange', hashChangeHandler)
+				.off('resize', doneResizing);
 
 			$(document)
-				.off('mouseenter click', '#multiscroll-nav li')
-				.off('mouseleave click', '#multiscroll-nav li')
-				.off('click', '#multiscroll-nav a')
-				.off('mouseover mouseenter', options.normalScrollElements)
-				.off('mouseout mouseleave', options.normalScrollElements);
+				.off('mouseenter', '#multiscroll-nav li')
+				.off('mouseleave', '#multiscroll-nav li')
+				.off('click', '#multiscroll-nav a');
+		};
 
+		/**
+		* Build multiscroll.js plugin's events after destroy
+		*/
+		$.fn.multiscroll.build = function() {
+			$.fn.multiscroll.setKeyboardScrolling(true);
+			$.fn.multiscroll.setMouseWheelScrolling(true);
+
+			$(window)
+				.on('hashchange', hashChangeHandler)
+				.on('resize', doneResizing);
+
+			$(document)
+				.on('mouseenter', '#multiscroll-nav li')
+				.on('mouseleave', '#multiscroll-nav li')
+				.on('click', '#multiscroll-nav a');
 		};
 
 	};
