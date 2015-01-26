@@ -81,7 +81,7 @@
 		//adding class names to each sections
 		if (options.sectionSelector !== '.ms-section') {
 			$(options.sectionSelector).each(function(){
-					$(this).addClass('ms-section');
+				$(this).addClass('ms-section');
 			});
 		}
 
@@ -257,7 +257,6 @@
 
 		//navigation action
 		$(document).on('click', '#multiscroll-nav a', function(e){
-			console.log('click epta');
 			e.preventDefault();
 			var index = $(this).parent().index();
 			scrollPage($('.ms-left .ms-section').eq(index));
