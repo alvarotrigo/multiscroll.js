@@ -6,7 +6,7 @@
  * Copyright (C) 2013 alvarotrigo.com - A project by Alvaro Trigo
  */
 
-(function($) {
+(function($, window, document, Math, undefined) {
 
 	$.fn.multiscroll = function(options) {
 		var MS = $.fn.multiscroll;
@@ -863,4 +863,4 @@
 		};
 
 	};
-})(jQuery);
+})(jQuery, window, document, Math);
