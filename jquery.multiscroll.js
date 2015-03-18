@@ -1,5 +1,5 @@
 /**
- * multiscroll.js 0.1.6 Beta
+ * multiscroll.js 0.1.7 Beta
  * https://github.com/alvarotrigo/multiscroll.js
  * MIT licensed
  *
@@ -7,7 +7,10 @@
  */
 
 (function($) {
+
 	$.fn.multiscroll = function(options) {
+		var MS = $.fn.multiscroll;
+
 		// Create some defaults, extending them with any options that were provided
 		options = $.extend({
 			'verticalCentered' : true,
@@ -42,13 +45,12 @@
 			'afterResize': null
 		}, options);
 
-
 		//Defines the delay to take place before being able to scroll to the next section
 		//BE CAREFUL! Not recommened to change it under 400 for a good behavior in laptops and
 		//Apple devices (laptops, mouses...)
 		var scrollDelay = 600;
 
-		var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
+		var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.maxTouchPoints));
 
 		// adding class namef for right and left blocks
 		if (options.rightSelector !== '.ms-right') {
@@ -174,10 +176,17 @@
 				$('.ms-left').find('.ms-section').first().addClass('active');
 			}
 
+			//vertical centered of the navigation + first bullet active
+			if(options.navigation){
+				nav.css('margin-top', '-' + (nav.height()/2) + 'px');
+			}
 			$.isFunction( options.afterRender ) && options.afterRender.call( this);
 
 			//scrolling to the defined active section and adjusting right and left panels
 			silentScroll();
+
+			//setting the class for the body element
+			setBodyClass();
 
 			$(window).on('load', function() {
 				scrollToAnchor();
@@ -206,44 +215,71 @@
 
 
 		/**
+		* Sliding with arrow keys, both, vertical and horizontal
+		*/
+		$(document).keydown(keydownHandler);
+
+
+		var keydownId;
+		function keydownHandler(e) {
+			clearTimeout(keydownId);
+
+			var activeElement = $(document.activeElement);
+
+			if(!activeElement.is('textarea') && !activeElement.is('input') && !activeElement.is('select') &&
+				options.keyboardScrolling){
+				var keyCode = e.which;
+
+				//preventing the scroll with arrow keys & spacebar & Page Up & Down keys
+				var keyControls = [40, 38, 32, 33, 34];
+				if($.inArray(keyCode, keyControls) > -1){
+					e.preventDefault();
+				}
+
+				keydownId = setTimeout(function(){
+					onkeydown(e);
+				},150);
+			}
+		}
+
+		/**
 		 * Sliding with arrow keys, both, vertical and horizontal
 		 */
-		$(document).keydown(function(e) {
-			if(e.which == 40 || e.which == 38){
-				e.preventDefault();
+		function onkeydown(e){
+			var shiftPressed = e.shiftKey;
+
+			switch (e.which) {
+				//up
+				case 38:
+				case 33:
+					MS.moveSectionUp();
+					break;
+
+				//down
+				case 32: //spacebar
+					if(shiftPressed){
+						MS.moveSectionUp();
+						break;
+					}
+				case 40:
+				case 34:
+					MS.moveSectionDown();
+					break;
+
+				//Home
+				case 36:
+					MS.moveTo(1);
+					break;
+
+				//End
+				case 35:
+					MS.moveTo( $('.ms-left .ms-section').length);
+					break;
+
+				default:
+					return; // exit this handler for other keys
 			}
-
-			//Moving the main page with the keyboard arrows if keyboard scrolling is enabled
-			if (options.keyboardScrolling && !isMoving) {
-				switch (e.which) {
-					//up
-					case 38:
-					case 33:
-						$.fn.multiscroll.moveSectionUp();
-						break;
-
-					//down
-					case 40:
-					case 34:
-						$.fn.multiscroll.moveSectionDown();
-						break;
-
-					//Home
-					case 36:
-						$.fn.multiscroll.moveTo(1);
-						break;
-
-					//End
-					case 35:
-						$.fn.multiscroll.moveTo( $('.ms-left .ms-section').length );
-						break;
-
-					default:
-						return; // exit this handler for other keys
-				}
-			}
-		});
-
+		}
 
 		/**
 		 * Disabling any action when pressing of the mouse wheel (Chrome, IE, Opera, Safari)
@@ -278,11 +314,11 @@
 
 		if(options.normalScrollElements){
 			$(document).on('mouseenter', options.normalScrollElements, function () {
-				$.fn.multiscroll.setMouseWheelScrolling(false);
+				MS.setMouseWheelScrolling(false);
 			});
 
 			$(document).on('mouseleave', options.normalScrollElements, function(){
-				$.fn.multiscroll.setMouseWheelScrolling(true);
+				MS.setMouseWheelScrolling(true);
 			});
 		}
 
@@ -313,7 +349,7 @@
 			}
 		}
 
-		$.fn.multiscroll.moveSectionUp = function(){
+		MS.moveSectionUp = function(){
 			var prev = $('.ms-left .ms-section.active').prev('.ms-section');
 
 			if(!prev.length && options.loopTop){
@@ -325,7 +361,7 @@
 			}
 		};
 
-		$.fn.multiscroll.moveSectionDown = function (){
+		MS.moveSectionDown = function (){
 			var next = $('.ms-left .ms-section.active').next('.ms-section');
 
 			if(!next.length && options.loopBottom ){
@@ -337,7 +373,7 @@
 			}
 		};
 
-		$.fn.multiscroll.moveTo = function (section){
+		MS.moveTo = function (section){
 			var destiny = '';
 
 			if(isNaN(section)){
@@ -362,8 +398,6 @@
 			//more than once if the page is scrolling
 			isMoving = true;
 
-			setURLHash(anchorLink);
-
 			var topPos = {
 				'left' : leftDestination.position().top,
 				'right': rightDestination.position().top
@@ -371,6 +405,8 @@
 
 			rightDestination.addClass('active').siblings().removeClass('active');
 			leftDestination.addClass('active').siblings().removeClass('active');
+
+			setURLHash(anchorLink);
 
 			// Use CSS3 translate functionality or...
 			if (options.css3){
@@ -459,12 +495,12 @@
 
 				//scrolling down?
 				if (delta < 0) {
-					$.fn.multiscroll.moveSectionDown();
+					MS.moveSectionDown();
 				}
 
 				//scrolling up?
 				else {
-					$.fn.multiscroll.moveSectionUp();
+					MS.moveSectionUp();
 				}
 			}
 
@@ -541,6 +577,32 @@
 				location.hash = anchorLink;
 			}
 
+			setBodyClass();
+		}
+
+		 /**
+		* Sets a class for the body of the page depending on the active section / slide
+		*/
+		function setBodyClass(){
+			var section = $('.ms-left .ms-section.active');
+			var sectionAnchor = section.data('anchor');
+			var sectionIndex = section.index();
+
+			var text = String(sectionIndex);
+
+			if(options.anchors.length){
+				text = sectionAnchor;
+			}
+
+			//changing slash for dash to make it a valid CSS style
+			text = text.replace('/', '-').replace('#','');
+
+			//removing previous anchor classes
+			var classRe = new RegExp('\\b\\s?' + 'ms-viewing' + '-[^\\s]+\\b', "g");
+			$('body')[0].className = $('body')[0].className.replace(classRe, '');
+
+			//adding the current anchor
+			$('body').addClass('ms-viewing-' + text);
 		}
 
 
@@ -613,14 +675,14 @@
 		/**
 		* Adds or remove the possiblity of scrolling through sections by using the keyboard arrow keys
 		*/
-		$.fn.multiscroll.setKeyboardScrolling = function (value){
+		MS.setKeyboardScrolling = function (value){
 			options.keyboardScrolling = value;
 		};
 
 		/**
 		* Adds or remove the possiblity of scrolling through sections by using the mouse wheel or the trackpad.
 		*/
-		$.fn.multiscroll.setMouseWheelScrolling = function (value){
+		MS.setMouseWheelScrolling = function (value){
 			if(value){
 				addMouseWheelHandler();
 			}else{
@@ -631,7 +693,7 @@
 		/**
 		* Defines the scrolling speed
 		*/
-		$.fn.multiscroll.setScrollingSpeed = function(value){
+		MS.setScrollingSpeed = function(value){
 			options.scrollingSpeed = value;
 		};
 
@@ -651,28 +713,39 @@
 		function touchMoveHandler(event){
 			var e = event.originalEvent;
 
-			//preventing the easing on iOS devices
-			event.preventDefault();
+			if(isReallyTouch(e)){
+				//preventing the easing on iOS devices
+				event.preventDefault();
 
-			var activeSection = $('.ms-left .ms-section.active');
+				var activeSection = $('.ms-left .ms-section.active');
 
-			if (!isMoving) { //if theres any #
-				var touchEvents = getEventsPage(e);
-				touchEndY = touchEvents['y'];
-				touchEndX = touchEvents['x'];
+				if (!isMoving) { //if theres any #
+					var touchEvents = getEventsPage(e);
+					touchEndY = touchEvents['y'];
+					touchEndX = touchEvents['x'];
 
 
-				//is the movement greater than the minimum resistance to scroll?
-				if (Math.abs(touchStartY - touchEndY) > ($(window).height() / 100 * options.touchSensitivity)) {
+					//is the movement greater than the minimum resistance to scroll?
+					if (Math.abs(touchStartY - touchEndY) > ($(window).height() / 100 * options.touchSensitivity)) {
 
-					if (touchStartY > touchEndY) {
-						$.fn.multiscroll.moveSectionDown();
+						if (touchStartY > touchEndY) {
+							MS.moveSectionDown();
 
-					} else if (touchEndY > touchStartY) {
-						$.fn.multiscroll.moveSectionUp();
+						} else if (touchEndY > touchStartY) {
+							MS.moveSectionUp();
+						}
 					}
 				}
 			}
+		}
+
+		/**
+		* As IE >= 10 fires both touch and mouse events when using a mouse in a touchscreen
+		* this way we make sure that is really a touch event what IE is detecting.
+		*/
+		function isReallyTouch(e){
+			//if is not IE   ||  IE is detecting `touch` or `pen`
+			return typeof e.pointerType === 'undefined' || e.pointerType != 'mouse';
 		}
 
 
@@ -681,9 +754,12 @@
 		*/
 		function touchStartHandler(event){
 			var e = event.originalEvent;
-			var touchEvents = getEventsPage(e);
-			touchStartY = touchEvents['y'];
-			touchStartX = touchEvents['x'];
+
+			if(isReallyTouch(e)){
+				var touchEvents = getEventsPage(e);
+				touchStartY = touchEvents['y'];
+				touchStartX = touchEvents['x'];
+			}
 		}
 
 
@@ -738,13 +814,15 @@
 		* https://github.com/alvarotrigo/fullPage.js/issues/194#issuecomment-34069854
 		*/
 		function getEventsPage(e){
-			var events = new Array();
-			if (window.navigator.msPointerEnabled){
-				events['y'] = e.pageY;
-				events['x'] = e.pageX;
-			}else{
-				events['y'] = e.touches[0].pageY;
-				events['x'] =  e.touches[0].pageX;
+			var events = [];
+
+			events.y = (typeof e.pageY !== 'undefined' && (e.pageY || e.pageX) ? e.pageY : e.touches[0].pageY);
+			events.x = (typeof e.pageX !== 'undefined' && (e.pageY || e.pageX) ? e.pageX : e.touches[0].pageX);
+
+			//in touch devices with scrollBar:true, e.pageY is detected, but we have to deal with touch events. #1008
+			if(isTouch && isReallyTouch(e)){
+				events.y = e.touches[0].pageY;
+				events.x = e.touches[0].pageX;
 			}
 
 			return events;
@@ -753,9 +831,9 @@
 		/**
 		* Destroy multiscroll.js plugin's events
 		*/
-		$.fn.multiscroll.destroy = function() {
-			$.fn.multiscroll.setKeyboardScrolling(false);
-			$.fn.multiscroll.setMouseWheelScrolling(false);
+		MS.destroy = function() {
+			MS.setKeyboardScrolling(false);
+			MS.setMouseWheelScrolling(false);
 
 			$(window)
 				.off('hashchange', hashChangeHandler)
@@ -770,9 +848,9 @@
 		/**
 		* Build multiscroll.js plugin's events after destroy
 		*/
-		$.fn.multiscroll.build = function() {
-			$.fn.multiscroll.setKeyboardScrolling(true);
-			$.fn.multiscroll.setMouseWheelScrolling(true);
+		MS.build = function() {
+			MS.setKeyboardScrolling(true);
+			MS.setMouseWheelScrolling(true);
 
 			$(window)
 				.on('hashchange', hashChangeHandler)
