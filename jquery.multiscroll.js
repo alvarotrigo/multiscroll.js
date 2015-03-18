@@ -81,7 +81,7 @@
 		//adding class names to each sections
 		if (options.sectionSelector !== '.ms-section') {
 			$(options.sectionSelector).each(function(){
-					$(this).addClass('ms-section');
+				$(this).addClass('ms-section');
 			});
 		}
 
@@ -187,7 +187,9 @@
 
 		//detecting any change on the URL to scroll to the given anchor link
 		//(a way to detect back history button as we play with the hashes on the URL)
-		$(window).on('hashchange',function(){
+		$(window).on('hashchange', hashChangeHandler);
+
+		function hashChangeHandler(){
 			var value =  window.location.hash.replace('#', '');
 			var sectionAnchor = value;
 
@@ -200,7 +202,7 @@
 					scrollPage(section);
 				}
 			}
-		});
+		};
 
 
 		/**
@@ -286,9 +288,7 @@
 
 
 		//when resizing the site, we adjust the heights of the sections
-		$(window).resize(function() {
-			doneResizing();
-		});
+		$(window).on('resize', doneResizing);
 
 		/**
 		 * When resizing is finished, we adjust the slides sizes and positions
@@ -632,7 +632,7 @@
 		* Defines the scrolling speed
 		*/
 		$.fn.multiscroll.setScrollingSpeed = function(value){
-			 options.scrollingSpeed = value;
+			options.scrollingSpeed = value;
 		};
 
 
@@ -749,6 +749,40 @@
 
 			return events;
 		}
+
+		/**
+		* Destroy multiscroll.js plugin's events
+		*/
+		$.fn.multiscroll.destroy = function() {
+			$.fn.multiscroll.setKeyboardScrolling(false);
+			$.fn.multiscroll.setMouseWheelScrolling(false);
+
+			$(window)
+				.off('hashchange', hashChangeHandler)
+				.off('resize', doneResizing);
+
+			$(document)
+				.off('mouseenter', '#multiscroll-nav li')
+				.off('mouseleave', '#multiscroll-nav li')
+				.off('click', '#multiscroll-nav a');
+		};
+
+		/**
+		* Build multiscroll.js plugin's events after destroy
+		*/
+		$.fn.multiscroll.build = function() {
+			$.fn.multiscroll.setKeyboardScrolling(true);
+			$.fn.multiscroll.setMouseWheelScrolling(true);
+
+			$(window)
+				.on('hashchange', hashChangeHandler)
+				.on('resize', doneResizing);
+
+			$(document)
+				.on('mouseenter', '#multiscroll-nav li')
+				.on('mouseleave', '#multiscroll-nav li')
+				.on('click', '#multiscroll-nav a');
+		};
 
 	};
 })(jQuery);

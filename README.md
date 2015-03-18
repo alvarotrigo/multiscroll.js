@@ -98,9 +98,9 @@ $(document).ready(function() {
 		touchSensitivity: 5,
 
 		// Custom selectors
-		'sectionSelector': '.ms-section',
-		'leftSelector': '.ms-left',
-		'rightSelector': '.ms-right',
+		sectionSelector: '.ms-section',
+		leftSelector: '.ms-left',
+		rightSelector: '.ms-right',
 
 		//events
 		onLeave: function(index, nextIndex, direction){},
@@ -234,6 +234,19 @@ Defines the scrolling speed in milliseconds.
 $.fn.multiscroll.setScrollingSpeed(700);
 ```
 
+### destroy
+Destroy plugin's events.
+
+```javascript
+$.fn.multiscroll.multiscroll.destroy();
+```
+
+### build
+Build plugin's events after destroy.
+
+```javascript
+$.fn.multiscroll.multiscroll.build();
+```
 
 
 ## Callbacks
