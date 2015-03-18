@@ -1,6 +1,6 @@
 {
   "name": "multiscroll.js",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "homepage": "http://alvarotrigo.com/multiScroll/",
   "authors": [
     "Alvaro Trigo https://github.com/alvarotrigo"
@@ -31,7 +31,7 @@
     "examples"
   ],
   "dependencies": {
-      "jquery": "1.x",
+      "jquery": "^1.x",
       "jquery.ui": "latest"
     }
 }
