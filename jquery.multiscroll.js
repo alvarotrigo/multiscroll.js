@@ -38,6 +38,12 @@
 			'leftSelector': '.ms-left',
 			'rightSelector': '.ms-right',
 
+			// Navigation selectors
+			'navigationSelector': '',
+			'navigationListSelector': '',
+			'navigationItemSelector': '',
+			'navigationLinkSelector': '',
+
 			//events
 			'afterLoad': null,
 			'onLeave': null,
@@ -94,6 +100,8 @@
 
 			nav.css('color', options.navigationColor);
 			nav.addClass(options.navigationPosition);
+			nav.addClass(options.navigationSelector);
+			nav.find('ul').addClass(options.navigationListSelector);
 		}
 
 		$('.ms-right, .ms-left').css({
@@ -149,6 +157,9 @@
 				}
 				if (options.navigation) {
 					nav.find('ul').append('<li data-tooltip="' + tooltip + '"><a href="#' + link + '"><span></span></a></li>');
+
+					nav.find('li').addClass(options.navigationItemSelector);
+					nav.find('li a').addClass(options.navigationLinkSelector);
 				}
 			}
 		});

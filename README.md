@@ -102,6 +102,12 @@ $(document).ready(function() {
 		leftSelector: '.ms-left',
 		rightSelector: '.ms-right',
 
+		// Navigation selectors
+		navigationSelector: 'navigation',
+		navigationListSelector: 'navigation__list',
+		navigationItemSelector: 'navigation__item',
+		navigationLinkSelector: 'navigation__link',
+
 		//events
 		onLeave: function(index, nextIndex, direction){},
 		afterLoad: function(anchorLink, index){},
@@ -184,6 +190,14 @@ $('#multiscroll').multiscroll({
 - `leftSelector`: (default `.ms-left`) You can use own class name for left block.
 
 - `rightSelector`: (default `.ms-right`) You can use own class name for right block.
+
+- `Navigation selectors`: (default empty) You can use own class name for navigation like in bem methodology. Also, you can use more then 1 class. Example:
+```
+navigationSelector: 'navigation',
+navigationListSelector: 'navigation__list',
+navigationItemSelector: 'navigation__item items',
+navigationLinkSelector: 'navigation__link',
+```
 
 ## Methods
 
