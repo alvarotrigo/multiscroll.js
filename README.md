@@ -10,10 +10,7 @@ A simple plugin to create multi scrolling websites with two vertical scrolling p
 
 Some sites using a similar effects:
 - http://www.reverzo.tymberry.com/
-- http://www.skodayeti.pl
-- http://coffeesurfing.illy.com/wps/wcm/connect/cs_en/home
 - http://wandaprint.com/home/
-- http://www.puma.com/actvrcvr/
 
 Invite me to a coffee
 [![Donate](https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/es/cgi-bin/webscr?cmd=_donations&business=BEK5JQCQMED4J&lc=GB&item_name=multiScroll%2ejs&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
@@ -355,6 +352,7 @@ Example:
 If you want your page to be listed here. Please <a href="mailto:alvaro@alvarotrigo.com">contact me</a> with the URL
 
 - http://homecoming.nust.edu.pk/
+- http://www.lob.com.mx/primavera15
 - http://www.proviotic.com/
 - http://noisacco.fr/mumm/#first
 - http://designova.net/reflex/index07.html
