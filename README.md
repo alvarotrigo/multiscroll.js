@@ -212,13 +212,6 @@ $.fn.multiscroll.moveTo('firstSection');
 $.fn.multiscroll.moveTo(3);
 ```
 
-### setAllowScrolling
-Adds or remove the possibility of scrolling through sections by using the mouse wheel/trackpad or touch gestures (which is active by default).
-
-```javascript
-$.fn.multiscroll.setAllowScrolling(false);
-```
-
 ### setKeyboardScrolling
 Adds or remove the possibility of scrolling through sections by using the keyboard arrow keys (which is active by default).
 
