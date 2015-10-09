@@ -7,6 +7,7 @@ A simple plugin to create multi scrolling websites with two vertical scrolling p
 
 - [Live demo](http://alvarotrigo.com/multiScroll/)
 - [Website](http://alvarotrigo.com/blog/multiscroll-js-jquery-plugin-to-create-multi-scrolling-sites-with-two-vertical-layouts/)
+- [Wordpress theme](https://goo.gl/Xuix30)
 
 Some sites using a similar effects:
 - http://www.reverzo.tymberry.com/
@@ -130,7 +131,7 @@ You can also use the `menu` option and make use of anchor links (#) as explained
 Example:
 ```javascript
 $('#multiscroll').multiscroll({
-    sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000'],
+	sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000'],
 });
 ```
 
@@ -160,16 +161,16 @@ This won't generate a menu but will just add the `active` class to the element i
 In order to link the elements of the menu with the sections, an HTML 5 data-tag (`data-menuanchor`) will be needed to use with the same anchor links as used within the sections. Example:
 ```html
 <ul id="myMenu">
-    <li data-menuanchor="firstPage" class="active"><a href="#firstPage">First section</a></li>
-    <li data-menuanchor="secondPage"><a href="#secondPage">Second section</a></li>
-    <li data-menuanchor="thirdPage"><a href="#thirdPage">Third section</a></li>
-    <li data-menuanchor="fourthPage"><a href="#fourthPage">Fourth section</a></li>
+	<li data-menuanchor="firstPage" class="active"><a href="#firstPage">First section</a></li>
+	<li data-menuanchor="secondPage"><a href="#secondPage">Second section</a></li>
+	<li data-menuanchor="thirdPage"><a href="#thirdPage">Third section</a></li>
+	<li data-menuanchor="fourthPage"><a href="#fourthPage">Fourth section</a></li>
 </ul>
 ```
 ```javascript
 $('#multiscroll').multiscroll({
-    anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
-    menu: '#myMenu'
+	anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
+	menu: '#myMenu'
 });
 ```
 
@@ -210,6 +211,13 @@ $.fn.multiscroll.moveTo('firstSection');
 ```javascript
 //Scrolling to the 3rd section in the site
 $.fn.multiscroll.moveTo(3);
+```
+
+### setAllowScrolling
+Adds or remove the possibility of scrolling through sections by using the mouse wheel/trackpad or touch gestures (which is active by default).
+
+```javascript
+$.fn.multiscroll.setAllowScrolling(false);
 ```
 
 ### setKeyboardScrolling
@@ -335,6 +343,7 @@ If you want your page to be listed here. Please <a href="mailto:alvaro@alvarotri
 - http://www.proviotic.com/
 - http://noisacco.fr/mumm/#first
 - http://designova.net/reflex/index07.html
+- [Themify](https://goo.gl/kaTYZb)
 
 ## Donations
 Donations would be more than welcome :)
