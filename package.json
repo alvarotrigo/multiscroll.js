@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/benjaminsweetnam247/multiscroll.js.git"
+    "url": "git+https://github.com/alvarotrigo/multiscroll.js.git"
   },
   "keywords": [
     "scroll",
@@ -20,10 +20,10 @@
     "multi",
     "divided"
   ],
-  "author": "alvaro trigo",
+  "author": "Alvaro Trigo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/benjaminsweetnam247/multiscroll.js/issues"
+    "url": "https://github.com/alvarotrigo/multiscroll.js/issues"
   },
-  "homepage": "https://github.com/benjaminsweetnam247/multiscroll.js#readme"
+  "homepage": "http://www.alvarotrigo.com/multiScroll/"
 }
