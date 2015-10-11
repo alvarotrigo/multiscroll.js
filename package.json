@@ -1,0 +1,29 @@
+{
+  "name": "multiscroll.js",
+  "version": "0.1.7",
+  "description": "a simple plugin to create multi scrolling websites with two vertical scrolling panels.",
+  "main": "jquery.multiscroll.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvarotrigo/multiscroll.js.git"
+  },
+  "keywords": [
+    "scroll",
+    "javascript",
+    "jquery",
+    "multi",
+    "divided"
+  ],
+  "author": "Alvaro Trigo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alvarotrigo/multiscroll.js/issues"
+  },
+  "homepage": "http://www.alvarotrigo.com/multiScroll/"
+}
