@@ -1,4 +1,4 @@
-/**
+/*!
  * multiscroll.js 0.1.7 Beta
  * https://github.com/alvarotrigo/multiscroll.js
  * MIT licensed
