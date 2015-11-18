@@ -327,6 +327,28 @@ Example:
 ```
 
 
+## Build tasks
+
+### Installing dependencies
+You must have node amd npm installed in order to run the compile and compress tasks.
+
+Terminal:
+```
+// (Optional) Install Gulp module globally
+npm install gulp -g
+
+// Install multiscroll's build dependencies
+npm install
+```
+
+### Task commands
+```
+// Compress the JS
+gulp js
+
+// or just
+gulp
+```
 
 ## Who is using multiscroll.js
 If you want your page to be listed here. Please <a href="mailto:alvaro@alvarotrigo.com">contact me</a> with the URL
