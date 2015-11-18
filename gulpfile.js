@@ -11,7 +11,7 @@ gulp.task('js', function() {
         preserveComments: 'license'
       }))
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('./dist'));
 });
 
 // Watcher
