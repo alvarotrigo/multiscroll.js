@@ -1,11 +1,8 @@
 {
   "name": "multiscroll.js",
   "version": "0.1.7",
-  "description": "a simple plugin to create multi scrolling websites with two vertical scrolling panels.",
+  "description": "A simple plugin to create split scrolling websites with two vertical scrolling panels.",
   "main": "jquery.multiscroll.js",
-  "directories": {
-    "example": "examples"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,12 +12,13 @@
   },
   "keywords": [
     "scroll",
-    "javascript",
-    "jquery",
+    "split-screen",
     "multi",
-    "divided"
+    "split"
   ],
-  "author": "Alvaro Trigo",
+  "authors": [
+    "Alvaro Trigo https://github.com/alvarotrigo"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/alvarotrigo/multiscroll.js/issues"
@@ -28,7 +26,10 @@
   "homepage": "http://www.alvarotrigo.com/multiScroll/",
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-clean-css": "^2.0.8",
     "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.4.2"
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.4.1"
   }
 }
