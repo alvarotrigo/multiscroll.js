@@ -290,24 +290,30 @@
 			}
 		});
 
-		//navigation action
-		$(document).on('click', '#multiscroll-nav a', function(e){
+		function navClickHandler(e) {
 			e.preventDefault();
 			var index = $(this).parent().index();
 			scrollPage($('.ms-left .ms-section').eq(index));
-		});
+		}
+
+		//navigation action
+		$(document).on('click', '#multiscroll-nav a', navClickHandler);
+
+		function navMouseEnterHandler() {
+			var tooltip = $(this).data('tooltip');
+			$('<div class="multiscroll-tooltip ' + options.navigationPosition +'">' + tooltip + '</div>').hide().appendTo($(this)).fadeIn(200);
+		}
+
+		function navMouseLeaveHandler() {
+			$(this).find('.multiscroll-tooltip').fadeOut(200, function() {
+				$(this).remove();
+			});
+		}
 
 		//navigation tooltips
 		$(document).on({
-			mouseenter: function(){
-				var tooltip = $(this).data('tooltip');
-				$('<div class="multiscroll-tooltip ' + options.navigationPosition +'">' + tooltip + '</div>').hide().appendTo($(this)).fadeIn(200);
-			},
-			mouseleave: function(){
-				$(this).find('.multiscroll-tooltip').fadeOut(200, function() {
-					$(this).remove();
-				});
-			}
+			mouseenter: navMouseEnterHandler,
+			mouseleave: navMouseLeaveHandler
 		}, '#multiscroll-nav li');
 
 
@@ -856,9 +862,9 @@
 				.on('resize', doneResizing);
 
 			$(document)
-				.on('mouseenter', '#multiscroll-nav li')
-				.on('mouseleave', '#multiscroll-nav li')
-				.on('click', '#multiscroll-nav a');
+				.on('mouseenter', '#multiscroll-nav li', navMouseEnterHandler)
+				.on('mouseleave', '#multiscroll-nav li', navMouseLeaveHandler)
+				.on('click', '#multiscroll-nav a', navClickHandler);
 		};
 
 	};
