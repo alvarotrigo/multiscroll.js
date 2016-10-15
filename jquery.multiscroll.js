@@ -839,6 +839,7 @@
 		MS.destroy = function() {
 			MS.setKeyboardScrolling(false);
 			MS.setMouseWheelScrolling(false);
+			removeTouchHandler();
 
 			$(window)
 				.off('hashchange', hashChangeHandler)
@@ -856,6 +857,7 @@
 		MS.build = function() {
 			MS.setKeyboardScrolling(true);
 			MS.setMouseWheelScrolling(true);
+			addTouchHandler();
 
 			$(window)
 				.on('hashchange', hashChangeHandler)

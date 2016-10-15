@@ -25,11 +25,10 @@
   },
   "homepage": "http://www.alvarotrigo.com/multiScroll/",
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-clean-css": "^2.0.8",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.13",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.0.4",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.4.1"
+    "gulp-sourcemaps": "^2.1.1",
+    "gulp-uglify": "^2.0.0"
   }
 }
