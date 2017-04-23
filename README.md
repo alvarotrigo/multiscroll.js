@@ -3,11 +3,20 @@
 ![preview](https://raw.github.com/alvarotrigo/multiScroll.js/master/examples/imgs/multiscroll.png)
 ![compatibility](http://alvarotrigo.com/multiScroll/imgs/compatible.gif)
 
-A simple plugin to create multi scrolling websites with two vertical scrolling panels.
+---
+
+![multiScroll.js version](http://img.shields.io/badge/multiscroll.js-v0.1.7-brightgreen.svg)
+[![License](http://img.shields.io/badge/License-MIT-blue.svg)](http://opensource.org/licenses/MIT)
+[![PayPal Donate](https://img.shields.io/badge/donate-PayPal.me-ff69b4.svg)](https://www.paypal.me/alvarotrigo/9.95)
+&nbsp;&nbsp; **|**&nbsp;&nbsp; *3.7Kb gziped* &nbsp;&nbsp;**|**&nbsp;&nbsp; *Created by [@imac2](https://twitter.com/imac2)*
 
 - [Live demo](http://alvarotrigo.com/multiScroll/)
-- [Website](http://alvarotrigo.com/blog/multiscroll-js-jquery-plugin-to-create-multi-scrolling-sites-with-two-vertical-layouts/)
 - [Wordpress theme](https://goo.gl/Xuix30)
+- [multiScroll.js Extensions](http://alvarotrigo.com/multiScroll/extensions/)
+- [Website post](http://alvarotrigo.com/blog/multiscroll-js-jquery-plugin-to-create-multi-scrolling-sites-with-two-vertical-layouts/)
+---
+
+A simple plugin to create multi scrolling websites with two vertical scrolling panels.
 
 Some sites using a similar effects:
 - http://www.reverzo.tymberry.com/
