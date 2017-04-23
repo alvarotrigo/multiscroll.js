@@ -29,7 +29,7 @@ It is designed to work as well on touch devices such as mobile phones or tablets
 ## Usage
 As you can see in the example files, you will need to include the JavaScript file `jquery.multiscroll.js` (or the minified version `jquery.multiscroll.min.js`) and the css file `jquery.multiscroll.css` of the plugin, as well as [jQuery](http://jquery.com/). Optionally, you can add the [jQuery UI library](http://jqueryui.com/) in case you want to use other easing effects apart from the ones included in the jQuery library which are the `linear` or `swing` effects. (`easeInQuart` is active by default, so you would need [jQuery UI library](http://jqueryui.com/) or the customized version  which is included in the vendors folder under the name `jquery.easings.min.js`.)
 
-###Including files:
+### Including files:
 ```html
 <link rel="stylesheet" type="text/css" href="jquery.multiscroll.css" />
 
@@ -42,7 +42,7 @@ As you can see in the example files, you will need to include the JavaScript fil
 <script type="text/javascript" src="jquery.multiscroll.js"></script>
 ```
 
-###Required HTML structure
+### Required HTML structure
 Each section will be defined with a `div` containing the `section` class.
 The active section by default will be the first section, which is taken as the home page.
 ```html
@@ -67,7 +67,7 @@ This should be done for the `ms-right` and `ms-left` elements.
 <div class="ms-section active">Some section</div>
 ```
 
-###Initialization
+### Initialization
 All you need to do is call the plugin inside a `$(document).ready` function:
 
 ```javascript
@@ -244,7 +244,7 @@ $.fn.multiscroll.build();
 
 
 ## Callbacks
-###afterLoad (`anchorLink`, `index`)
+### afterLoad (`anchorLink`, `index`)
 Callback fired once the sections have been loaded, after the scrolling has ended.
 Parameters:
 
@@ -273,7 +273,7 @@ Example:
 	});
 ```
 
-###onLeave (`index`, `nextIndex`, `direction`)
+### onLeave (`index`, `nextIndex`, `direction`)
 This callback is fired once the user leaves a section, in the transition to the new section.
 
 Parameters:
@@ -300,7 +300,7 @@ Example:
 ```
 
 
-###afterRender()
+### afterRender()
 This callback is fired just after the structure of the page is generated. This is the callback you want to use to initialize other plugins or fire any code which requires the document to be ready (as this plugin modifies the DOM to create the resulting structure).
 
 Example:
@@ -313,7 +313,7 @@ Example:
 	});
 ```
 
-###afterResize()
+### afterResize()
 This callback is fired after resizing the browser's window. Just after the sections are resized.
 
 Example:
