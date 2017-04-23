@@ -131,7 +131,7 @@ You can do it by creating accessing to the URL by adding the anchor. For example
 You can also use the `menu` option and make use of anchor links (#) as explained below in the options section.
 
 
-###Use extensions
+### Use extensions
 multiscroll.js [provides a set of extensions](http://alvarotrigo.com/multiScroll/extensions/) you can use to enhance its default features. All of them are listed as [multiscroll.js options](https://github.com/alvarotrigo/multiscroll.js#options).
 
 Extensions requires you to use the minified file [`jquery.multiscroll.extensions.min.js`](https://github.com/alvarotrigo/multiscroll.js/blob/master/dist/jquery.multiscroll.extensions.min.js) that is inside the [`dist` folder](https://github.com/alvarotrigo/multiscroll.js/tree/master/dist) instead of the usual multiscroll.js file (`jquery.multiscroll.js` or `jquery.multiscroll.min.js`).
