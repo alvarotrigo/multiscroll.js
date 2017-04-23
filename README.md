@@ -121,6 +121,23 @@ You can do it by creating accessing to the URL by adding the anchor. For example
 
 You can also use the `menu` option and make use of anchor links (#) as explained below in the options section.
 
+
+###Use extensions
+multiscroll.js [provides a set of extensions](http://alvarotrigo.com/multiScroll/extensions/) you can use to enhance its default features. All of them are listed as [multiscroll.js options](https://github.com/alvarotrigo/multiscroll.js#options).
+
+Extensions requires you to use the minified file [`jquery.multiscroll.extensions.min.js`](https://github.com/alvarotrigo/multiscroll.js/blob/master/dist/jquery.multiscroll.extensions.min.js) that is inside the [`dist` folder](https://github.com/alvarotrigo/multiscroll.js/tree/master/dist) instead of the usual multiscroll.js file (`jquery.multiscroll.js` or `jquery.multiscroll.min.js`).
+
+Once you adquire the extension file, you will need to add it before fullPage. For example, if I want to use the Continuos Horizontal extension, I would have include the extension file and then the extensions version of the fullPage file.
+
+```html
+<script type="text/javascript" src="multiscroll.responsiveExpand.min.js"></script>
+<script type="text/javascript" src="jquery.multiscroll.extensions.min.js"></script>
+```
+
+An activation key and a license key will be required for each extension. [See more details about it here](https://github.com/alvarotrigo/multiscroll.js/wiki/How-to-activate-a-multiscroll.js-extension).
+
+Then you will be able to use and configure them as explained in [options](https://github.com/alvarotrigo/multiscroll.js#options).
+
 ## Options
 
 - `verticalCentered`: (default `true`) Vertically centering of the content within sections.
