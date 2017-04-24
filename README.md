@@ -34,7 +34,6 @@ Customizations of the plugin available upon request for some reasonable price. <
 - [Methods](https://github.com/alvarotrigo/multiscroll.js#methods)
 - [Callbacks](https://github.com/alvarotrigo/multiscroll.js#callbacks)
 - [Reporting issues](https://github.com/alvarotrigo/multiscroll.js#reporting-issues)
-- [Contributing to multiscroll.js](https://github.com/alvarotrigo/multiscroll.js#contributing-to-multiscrolljs)
 - [Changelog](https://github.com/alvarotrigo/multiscroll.js#changelog)
 - [Build tasks](https://github.com/alvarotrigo/multiscroll.js#build-tasks)
 - [Resources](https://github.com/alvarotrigo/multiscroll.js#resources)
@@ -410,8 +409,11 @@ Example:
 # Changelog
 To see the list of recent changes, see [Releases section](https://github.com/alvarotrigo/multiscroll.js/releases).
 
-## Build tasks
+# Build tasks
 Want to build multiscroll.js distribution files? Please see [Build Tasks](https://github.com/alvarotrigo/multiscroll.js/wiki/Build-tasks)
+
+# Resources
+- [Wordpress theme](https://goo.gl/kaTYZb)
 
 ## Who is using multiscroll.js
 If you want your page to be listed here. Please <a href="mailto:alvaro@alvarotrigo.com">contact me</a> with the URL
