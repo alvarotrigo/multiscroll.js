@@ -54,14 +54,14 @@ It is designed to work as well on touch devices such as mobile phones or tablets
 As you can see in the example files, you will need to include the JavaScript file `jquery.multiscroll.js` (or the minified version `jquery.multiscroll.min.js`) and the css file `jquery.multiscroll.css` of the plugin, as well as [jQuery](http://jquery.com/). Optionally, you can add the [jQuery UI library](http://jqueryui.com/) in case you want to use other easing effects apart from the ones included in the jQuery library which are the `linear` or `swing` effects. (`easeInQuart` is active by default, so you would need [jQuery UI library](http://jqueryui.com/) or the customized version  which is included in the vendors folder under the name `jquery.easings.min.js`.)
 
 ### Install using bower or npm
-**Optionally**, you can install fullPage.js with bower or npm if you prefer:
+**Optionally**, you can install multiscroll.js with bower or npm if you prefer:
 Terminal:
 ```shell
 // With bower
-bower install fullpage.js
+bower install multiscroll.js
 
 // With npm
-npm install fullpage.js
+npm install multiscroll.js
 ```
 
 ### Including files:
@@ -78,7 +78,7 @@ npm install fullpage.js
 ```
 
 ### Optional use of CDN
-If you prefer to use a CDN to load the needed files, fullPage.js is in CDNJS:
+If you prefer to use a CDN to load the needed files, multiscroll.js is in CDNJS:
 https://cdnjs.com/libraries/multiscroll.js
 
 ### Required HTML structure
@@ -403,7 +403,7 @@ Example:
 
 # Reporting issues
 1. Please, look for your issue before asking using the github issues search.
-2. Make sure you use the latest fullpage.js version. No support is provided for older versions.
+2. Make sure you use the latest multiscroll.js version. No support is provided for older versions.
 3. Use the [the Github Issues forum](https://github.com/alvarotrigo/multiscroll.js/issues) to create issues.
 4. **An isolated reproduction of the issue will be required.** Make use of jsfiddle or codepen for it if possible.
 
@@ -411,7 +411,7 @@ Example:
 To see the list of recent changes, see [Releases section](https://github.com/alvarotrigo/multiscroll.js/releases).
 
 ## Build tasks
-Want to build fullpage.js distribution files? Please see [Build Tasks](https://github.com/alvarotrigo/multiscroll.js/wiki/Build-tasks)
+Want to build multiscroll.js distribution files? Please see [Build Tasks](https://github.com/alvarotrigo/multiscroll.js/wiki/Build-tasks)
 
 ## Who is using multiscroll.js
 If you want your page to be listed here. Please <a href="mailto:alvaro@alvarotrigo.com">contact me</a> with the URL
