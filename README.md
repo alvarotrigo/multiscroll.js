@@ -400,19 +400,19 @@ Example:
 	});
 ```
 
-# Reporting issues
+## Reporting issues
 1. Please, look for your issue before asking using the github issues search.
 2. Make sure you use the latest multiscroll.js version. No support is provided for older versions.
 3. Use the [the Github Issues forum](https://github.com/alvarotrigo/multiscroll.js/issues) to create issues.
 4. **An isolated reproduction of the issue will be required.** Make use of jsfiddle or codepen for it if possible.
 
-# Changelog
+## Changelog
 To see the list of recent changes, see [Releases section](https://github.com/alvarotrigo/multiscroll.js/releases).
 
-# Build tasks
+## Build tasks
 Want to build multiscroll.js distribution files? Please see [Build Tasks](https://github.com/alvarotrigo/multiscroll.js/wiki/Build-tasks)
 
-# Resources
+## Resources
 - [Wordpress theme](https://goo.gl/kaTYZb)
 
 ## Who is using multiscroll.js
