@@ -18,14 +18,29 @@
 
 A simple plugin to create multi scrolling websites with two vertical scrolling panels.
 
-Some sites using a similar effects:
-- http://www.reverzo.tymberry.com/
-- http://wandaprint.com/home/
 
 Invite me to a coffee
 [![Donate](https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/es/cgi-bin/webscr?cmd=_donations&business=BEK5JQCQMED4J&lc=GB&item_name=multiScroll%2ejs&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
 
 Customizations of the plugin available upon request for some reasonable price. <a href="http://alvarotrigo.com/#contact-page">Contact me</a>.
+
+- [Introduction](https://github.com/alvarotrigo/multiscroll.js#introduction)
+- [Compatibility](https://github.com/alvarotrigo/multiscroll.js#compatibility)
+- [Usage](https://github.com/alvarotrigo/multiscroll.js#usage)
+  - [Creating links to sections](https://github.com/alvarotrigo/multiscroll.js#creating-links-to-sections)
+  - [State classes added by multiscroll.js](https://github.com/alvarotrigo/multiscroll.js#state-classes-added-by-multiscrolljs)
+  - [Use extensions](https://github.com/alvarotrigo/multiscroll.js#use-extensions)
+- [Options](https://github.com/alvarotrigo/multiscroll.js#options)
+- [Methods](https://github.com/alvarotrigo/multiscroll.js#methods)
+- [Callbacks](https://github.com/alvarotrigo/multiscroll.js#callbacks)
+- [Reporting issues](https://github.com/alvarotrigo/multiscroll.js#reporting-issues)
+- [Contributing to multiscroll.js](https://github.com/alvarotrigo/multiscroll.js#contributing-to-multiscrolljs)
+- [Changelog](https://github.com/alvarotrigo/multiscroll.js#changelog)
+- [Build tasks](https://github.com/alvarotrigo/multiscroll.js#build-tasks)
+- [Resources](https://github.com/alvarotrigo/multiscroll.js#resources)
+- [Who is using multiscroll.js](https://github.com/alvarotrigo/multiscroll.js#who-is-using-multiscrolljs)
+- [Donations](https://github.com/alvarotrigo/multiscroll.js#donations)
+- [License](https://github.com/alvarotrigo/multiscroll.js#license)
 
 ## Introduction
 This plugin its in Beta version. Suggestion are more than welcome, not only for feature requests but also for coding style improvements.
@@ -37,6 +52,17 @@ It is designed to work as well on touch devices such as mobile phones or tablets
 
 ## Usage
 As you can see in the example files, you will need to include the JavaScript file `jquery.multiscroll.js` (or the minified version `jquery.multiscroll.min.js`) and the css file `jquery.multiscroll.css` of the plugin, as well as [jQuery](http://jquery.com/). Optionally, you can add the [jQuery UI library](http://jqueryui.com/) in case you want to use other easing effects apart from the ones included in the jQuery library which are the `linear` or `swing` effects. (`easeInQuart` is active by default, so you would need [jQuery UI library](http://jqueryui.com/) or the customized version  which is included in the vendors folder under the name `jquery.easings.min.js`.)
+
+### Install using bower or npm
+**Optionally**, you can install fullPage.js with bower or npm if you prefer:
+Terminal:
+```shell
+// With bower
+bower install fullpage.js
+
+// With npm
+npm install fullpage.js
+```
 
 ### Including files:
 ```html
@@ -50,6 +76,10 @@ As you can see in the example files, you will need to include the JavaScript fil
 
 <script type="text/javascript" src="jquery.multiscroll.js"></script>
 ```
+
+### Optional use of CDN
+If you prefer to use a CDN to load the needed files, fullPage.js is in CDNJS:
+https://cdnjs.com/libraries/multiscroll.js
 
 ### Required HTML structure
 Each section will be defined with a `div` containing the `section` class.
@@ -126,8 +156,8 @@ $(document).ready(function() {
 });
 ```
 
-#### Using anchor links
-In order to create links to certain sections, if you are using multiscroll.js with anchor links for the sections (using the `anchors` option), then you will be able to use anchor links also to navigate directly to a certain section by using the URL.
+#### Creating links to sections
+If you are using multiscroll.js with anchor links for the sections (using the `anchors` option), then you will be able to use anchor links also to navigate directly to a certain section by using the URL.
 
 You can do it by creating accessing to the URL by adding the anchor. For example: `http://youriste.com/#secondSection`.
 
@@ -136,12 +166,20 @@ You can do it by creating accessing to the URL by adding the anchor. For example
 You can also use the `menu` option and make use of anchor links (#) as explained below in the options section.
 
 
+### State classes added by multiScroll.js
+multiScroll.js adds multiple classes in different elements to keep a record of the status of the site:
+
+- `active` is added the current visible section.
+- `active` is added to the current menu element (if using the `menu` option).
+- A class of the form `ms-viewing-SECTION` is added to the `body` element of the site. (eg: [`ms-viewing-second`](http://alvarotrigo.com/multiScroll/#second) The `SECTION` part will be the anchors (or index if no anchor is provided) of the current section.
+- `ms-responsive` is added to the `body` element when the entering in the responsive mode
+
 ### Use extensions
 multiscroll.js [provides a set of extensions](http://alvarotrigo.com/multiScroll/extensions/) you can use to enhance its default features. All of them are listed as [multiscroll.js options](https://github.com/alvarotrigo/multiscroll.js#options).
 
 Extensions requires you to use the minified file [`jquery.multiscroll.extensions.min.js`](https://github.com/alvarotrigo/multiscroll.js/blob/master/dist/jquery.multiscroll.extensions.min.js) that is inside the [`dist` folder](https://github.com/alvarotrigo/multiscroll.js/tree/master/dist) instead of the usual multiscroll.js file (`jquery.multiscroll.js` or `jquery.multiscroll.min.js`).
 
-Once you adquire the extension file, you will need to add it before fullPage. For example, if I want to use the Continuos Horizontal extension, I would have include the extension file and then the extensions version of the fullPage file.
+Once you adquire the extension file, you will need to add it before multiscroll. For example, if I want to use the Continuos Horizontal extension, I would have include the extension file and then the extensions version of the multiscroll file.
 
 ```html
 <script type="text/javascript" src="multiscroll.responsiveExpand.min.js"></script>
@@ -363,29 +401,17 @@ Example:
 	});
 ```
 
+# Reporting issues
+1. Please, look for your issue before asking using the github issues search.
+2. Make sure you use the latest fullpage.js version. No support is provided for older versions.
+3. Use the [the Github Issues forum](https://github.com/alvarotrigo/multiscroll.js/issues) to create issues.
+4. **An isolated reproduction of the issue will be required.** Make use of jsfiddle or codepen for it if possible.
+
+# Changelog
+To see the list of recent changes, see [Releases section](https://github.com/alvarotrigo/multiscroll.js/releases).
 
 ## Build tasks
-
-### Installing dependencies
-You must have node amd npm installed in order to run the compile and compress tasks.
-
-Terminal:
-```
-// (Optional) Install Gulp module globally
-npm install gulp -g
-
-// Install multiscroll's build dependencies
-npm install
-```
-
-### Task commands
-```
-// Compress the JS
-gulp js
-
-// or just
-gulp
-```
+Want to build fullpage.js distribution files? Please see [Build Tasks](https://github.com/alvarotrigo/multiscroll.js/wiki/Build-tasks)
 
 ## Who is using multiscroll.js
 If you want your page to be listed here. Please <a href="mailto:alvaro@alvarotrigo.com">contact me</a> with the URL
