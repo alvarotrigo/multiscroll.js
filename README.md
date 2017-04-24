@@ -111,7 +111,6 @@ $(document).ready(function() {
 		responsiveWidth: 0,
 		responsiveHeight: 0,
 		responsiveExpand: false,
-		responsiveCombine: false,
 
 		// Custom selectors
 		sectionSelector: '.ms-section',
@@ -223,8 +222,6 @@ $('#multiscroll').multiscroll({
 - `responsiveHeight`: (default `0`) Normal scroll will be used under the defined height in pixels. A class `ms-responsive` is added to the body tag in case the user wants to use it for his own responsive CSS. For example, if set to 900, whenever the browser's height is less than 900 the plugin will scroll like a normal site.
 
 - `responsiveExpand`: (default `false`) [Extension of multiScroll.js](http://alvarotrigo.com/multiScroll/extensions/). When responsive mode is fired (by using the `responsiveWidth` or `responsiveHeight` options detailed above) it turns auto scrolling off and expands each left and right side into a full-width section placing one after another. Then the page can be scrolled normally. [Read more about how to use the Responsive Expand option.](https://github.com/alvarotrigo/multiscroll.js/wiki/Responsive-Expand-Extension)
-
-- `responsiveCombine`: (default `false`) [Extension of multiScroll.js](http://alvarotrigo.com/multiScroll/extensions/).  When responsive mode is fired (by using the `responsiveWidth` or `responsiveHeight` options detailed above) it turns auto scrolling off and combine each left and right so they will scroll normally together.
 
 ## Methods
 
