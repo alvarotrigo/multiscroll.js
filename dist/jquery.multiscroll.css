@@ -97,3 +97,6 @@ html, body {
 .multiscroll-tooltip.left {
     left: 20px;
 }
+.ms-responsive .ms-hide{
+    display: none;
+}
