@@ -16,6 +16,7 @@ html, body {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    overflow:hidden;
 }
 .ms-section.ms-table{
     display: table;
@@ -32,6 +33,13 @@ html, body {
     -moz-transition: all 0.7s ease-out;
     -o-transition: all 0.7s ease-out;
     transition: all 0.7s ease-out;
+}
+.ms-fullscreen-content{
+    width:200%;
+    box-sizing:border-box;
+}
+.ms-fullscreen-right .ms-fullscreen-content{
+    margin-left:-100%;
 }
 #multiscroll-nav {
     position: fixed;

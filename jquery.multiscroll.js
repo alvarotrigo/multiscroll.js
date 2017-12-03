@@ -120,6 +120,11 @@
 		$('.ms-left .ms-section, .ms-right .ms-section').each(function(){
 			var sectionIndex = $(this).index();
 
+            //clone left side to right if the right side is empty
+            if( $(this).hasClass('ms-fullscreen-right') ){
+                $(this).empty().append( $('.ms-left .ms-section')[sectionIndex].innerHTML );
+            }
+
 			if(options.paddingTop || options.paddingBottom){
 				$(this).css('padding', options.paddingTop  + ' 0 ' + options.paddingBottom + ' 0');
 			}
