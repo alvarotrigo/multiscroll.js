@@ -13,8 +13,12 @@
   "keywords": [
     "scroll",
     "split-screen",
+    "split-layout",
+    "mousewheel",
     "multi",
-    "split"
+    "split",
+    "multiscroll",
+    "snap"
   ],
   "authors": [
     "Alvaro Trigo https://github.com/alvarotrigo"
