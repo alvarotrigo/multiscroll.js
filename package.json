@@ -29,6 +29,6 @@
     "gulp-clean-css": "^2.0.13",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^2.1.1",
-    "gulp-uglify": "^2.0.0"
+    "gulp-uglify": "^3.0.0"
   }
 }

@@ -23,7 +23,9 @@ gulp.task('js', function() {
         .pipe(sourcemaps.init())
         .pipe(gulp.dest('./dist'))
         .pipe(uglify({
-            preserveComments: 'license'
+            output: {
+                comments: 'some'
+            }
         }))
         .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write('.'))
