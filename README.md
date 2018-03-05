@@ -5,7 +5,7 @@
 
 ---
 
-![multiScroll.js version](http://img.shields.io/badge/multiscroll.js-v0.1.8-brightgreen.svg)
+![multiScroll.js version](http://img.shields.io/badge/multiscroll.js-v0.1.9-brightgreen.svg)
 [![License](http://img.shields.io/badge/License-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 [![PayPal Donate](https://img.shields.io/badge/donate-PayPal.me-ff69b4.svg)](https://www.paypal.me/alvarotrigo/9.95)
 &nbsp;&nbsp; **|**&nbsp;&nbsp; *3.7Kb gziped* &nbsp;&nbsp;**|**&nbsp;&nbsp; *Created by [@imac2](https://twitter.com/imac2)*
@@ -133,6 +133,8 @@ $(document).ready(function() {
 		paddingTop: 0,
 		paddingBottom: 0,
 		normalScrollElements: null,
+		scrollOverflow: false,
+		scrollOverflowOptions: null,
 		keyboardScrolling: true,
 		touchSensitivity: 5,
 
@@ -219,6 +221,10 @@ It requires the file `vendors/jquery.easings.min.js` or [jQuery UI](http://jquer
 - `paddingBottom`: (default `0`) Defines the bottom padding for each section with a numerical value and its measure (paddingBottom: '10px', paddingBottom: '10em'...). Useful in case of using a fixed footer.
 
 - `normalScrollElements`: (default `null`) If you want to avoid the auto scroll when scrolling over some elements, this is the option you need to use. (useful for maps, scrolling divs etc.) It requires a string with the jQuery selectors for those elements. (For example: `normalScrollElements: '#element1, .element2'`)
+
+- `scrollOverflow`: [Demo](https://alvarotrigo.com/multiScroll/extensions/scrollOverflow.html) | (default `false`) [Extension of multiScroll.js](http://alvarotrigo.com/multiScroll/extensions/). (not compatible with IE 8) defines whether or not to create a scroll bar for the section/slide in case its content is bigger than the viewport's height. When set to `true`, your content will be wrapped by multiScroll.js. Consider using delegation or load your other scripts in the `afterRender` callback.
+
+- `scrollOverflowOptions`: (default `null`) when using `scrollOverflow:true` multiScroll.js will make use of a forked and modified version of [iScroll.js library](https://github.com/cubiq/iscroll/). You can customize the scrolling behaviour by providing multiScroll.js with the iScroll.js options you want to use. Check its [documentation](http://iscrolljs.com/) for more info.
 
 - `keyboardScrolling`: (default `true`) Defines if the content can be navigated using the keyboard
 
@@ -416,14 +422,27 @@ Want to build multiscroll.js distribution files? Please see [Build Tasks](https:
 - [Wordpress theme](https://goo.gl/kaTYZb)
 
 ## Who is using multiscroll.js
-If you want your page to be listed here. Please <a href="mailto:alvaro@alvarotrigo.com">contact me</a> with the URL
+If you want your page to be listed here. Please <a href="mailto:alvaro@alvarotrigo.com">contact me</a> with the URL.
 
-- http://homecoming.nust.edu.pk/
-- http://www.lob.com.mx/primavera15
-- http://www.proviotic.com/
-- http://noisacco.fr/mumm/#first
-- http://designova.net/reflex/index07.html
 - [Themify](https://goo.gl/kaTYZb)
+- http://designova.net/reflex/index07.html
+- https://www.genscher.com
+- http://betterhr.de
+- https://www.kurasino.co.jp
+- http://www.lhaulhaumaria.com
+- https://thewastedhour.com
+- http://restaurant-eveil.com
+- https://www.tischlerei-clemens.de/tischlerei.html
+- http://www.ateliers-romeo.com
+- https://buerobinder.de
+- https://www.blancacre.com
+- http://caporasosrls.com
+- https://www.epic.ch/de/home
+- https://www.paulsbuero.com
+- http://ruiferraodev.net
+- http://lucasfleischer.com
+- https://quintushortus.com/pages/le-concept
+
 
 ## Donations
 Donations would be more than welcome :)
