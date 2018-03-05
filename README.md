@@ -260,11 +260,11 @@ $('#multiscroll').multiscroll({
 
 - `rightSelector`: (default `.ms-right`) You can use own class name for right block.
 
-- `responsiveWidth`: (default `0`) Normal scroll will be used under the defined width in pixels. A class `ms-responsive` is added to the body tag in case the user wants to use it for his own responsive CSS. For example, if set to 900, whenever the browser's width is less than 900 the plugin will scroll like a normal site.
+- `responsiveWidth`: (default `0`) Only useful when using the option `responsiveExpand`. Normal scroll will be used under the defined width in pixels. A class `ms-responsive` is added to the body tag in case the user wants to use it for his own responsive CSS. For example, if set to 900, whenever the browser's width is less than 900 the plugin will scroll like a normal site.
 
-- `responsiveHeight`: (default `0`) Normal scroll will be used under the defined height in pixels. A class `ms-responsive` is added to the body tag in case the user wants to use it for his own responsive CSS. For example, if set to 900, whenever the browser's height is less than 900 the plugin will scroll like a normal site.
+- `responsiveHeight`: (default `0`) Only useful when using the option `responsiveExpand`. Normal scroll will be used under the defined height in pixels. A class `ms-responsive` is added to the body tag in case the user wants to use it for his own responsive CSS. For example, if set to 900, whenever the browser's height is less than 900 the plugin will scroll like a normal site.
 
-- `responsiveExpand`: (default `false`) [Extension of multiScroll.js](http://alvarotrigo.com/multiScroll/extensions/). When responsive mode is fired (by using the `responsiveWidth` or `responsiveHeight` options detailed above) it turns auto scrolling off and expands each left and right side into a full-width section placing one after another. Then the page can be scrolled normally. [Read more about how to use the Responsive Expand option.](https://github.com/alvarotrigo/multiscroll.js/wiki/Responsive-Expand-Extension)
+- `responsiveExpand`: (default `false`) [Demo](https://alvarotrigo.com/multiScroll/extensions/responsive-expand.html) | [Extension of multiScroll.js](http://alvarotrigo.com/multiScroll/extensions/). When responsive mode is fired (by using the `responsiveWidth` or `responsiveHeight` options detailed above) it turns auto scrolling off and expands each left and right side into a full-width section placing one after another. Then the page can be scrolled normally. [Read more about how to use the Responsive Expand option.](https://github.com/alvarotrigo/multiscroll.js/wiki/Responsive-Expand-Extension)
 
 ## Methods
 
