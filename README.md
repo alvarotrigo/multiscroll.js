@@ -4,7 +4,6 @@
 ![compatibility](http://alvarotrigo.com/multiScroll/imgs/compatible.gif)
 
 ---
-(http://img.shields.io/badge/fullPage.js-v2.9.6-brightgreen.svg)
 ![multiScroll.js version](http://img.shields.io/badge/multiscroll.js-v0.1.9-brightgreen.svg)
 [![License](http://img.shields.io/badge/License-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 [![PayPal Donate](https://img.shields.io/badge/donate-PayPal.me-ff69b4.svg)](https://www.paypal.me/alvarotrigo/9.95)
