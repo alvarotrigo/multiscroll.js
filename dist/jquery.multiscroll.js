@@ -1,5 +1,5 @@
 /*!
- * multiscroll.js 0.1.9
+ * multiscroll.js 0.2.0
  * https://github.com/alvarotrigo/multiscroll.js
  * @license MIT licensed
  *
@@ -335,7 +335,7 @@
         $(window).on('resize', resizeHandler);
 
 
-        var previousHeight = windowsHeight;
+        var previousHeight = windowHeight;
 
         /**
          * When resizing is finished, we adjust the slides sizes and positions
