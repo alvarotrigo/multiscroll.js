@@ -1,5 +1,5 @@
 /*!
- * multiscroll.js 0.2.0
+ * multiscroll.js 0.2.1
  * https://github.com/alvarotrigo/multiscroll.js
  * @license MIT licensed
  *
@@ -65,6 +65,11 @@
         var isMoving = false;
         var nav;
         var windowHeight = $(window).height();
+        var MSPointer = getMSPointer();
+        var events = {
+            touchmove: 'ontouchmove' in window ? 'touchmove' :  MSPointer.move,
+            touchstart: 'ontouchstart' in window ? 'touchstart' :  MSPointer.down
+        };
 
         //timeouts
         var resizeId;
@@ -812,12 +817,9 @@
         * Adds the possibility to auto scroll through sections on touch devices.
         */
         function addTouchHandler(){
-            if(isTouch){
-                //Microsoft pointers
-                MSPointer = getMSPointer();
-
-                $(document).off('touchstart ' +  MSPointer.down).on('touchstart ' + MSPointer.down, touchStartHandler);
-                $(document).off('touchmove ' + MSPointer.move).on('touchmove ' + MSPointer.move, touchMoveHandler);
+            if(isTouch || isTouchDevice){
+                $(document).off(events.touchstart).on(events.touchstart, touchStartHandler);
+                $(document).off(events.touchmove).on(events.touchmove, touchMoveHandler);
             }
         }
 
@@ -825,12 +827,9 @@
         * Removes the auto scrolling for touch devices.
         */
         function removeTouchHandler(){
-            if(isTouch){
-                //Microsoft pointers
-                MSPointer = getMSPointer();
-
-                $(document).off('touchstart ' + MSPointer.down);
-                $(document).off('touchmove ' + MSPointer.move);
+            if(isTouch || isTouchDevice){
+                $(document).off(events.touchstart);
+                $(document).off(events.touchmove);
             }
         }
 
@@ -865,7 +864,7 @@
             events.x = (typeof e.pageX !== 'undefined' && (e.pageY || e.pageX) ? e.pageX : e.touches[0].pageX);
 
             //in touch devices with scrollBar:true, e.pageY is detected, but we have to deal with touch events. #1008
-            if(isTouch && isReallyTouch(e)){
+            if(isTouch && isReallyTouch(e) && typeof e.touches !== 'undefined'){
                 events.y = e.touches[0].pageY;
                 events.x = e.touches[0].pageX;
             }
