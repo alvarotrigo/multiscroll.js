@@ -14,6 +14,7 @@
         options = $.extend({
             'verticalCentered' : true,
             'scrollingSpeed': 700,
+            'scrollDelay': 600,
             'easing': 'easeInQuart',
             'menu': false,
             'sectionsColor': [],
@@ -47,7 +48,7 @@
         //Defines the delay to take place before being able to scroll to the next section
         //BE CAREFUL! Not recommened to change it under 400 for a good behavior in laptops and
         //Apple devices (laptops, mouses...)
-        var scrollDelay = 600;
+        var scrollDelay = options.scrollDelay;
 
         var isTouchDevice = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|playbook|silk|BlackBerry|BB10|Windows Phone|Tizen|Bada|webOS|IEMobile|Opera Mini)/);
         var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0) || (navigator.maxTouchPoints));

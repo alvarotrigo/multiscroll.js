@@ -196,6 +196,8 @@ Then you will be able to use and configure them as explained in [options](https:
 
 - `scrollingSpeed`: (default `700`) Speed in milliseconds for the scrolling transitions.
 
+- `scrollDelay`: (default `600`) Delay in milliseconds before being able to scroll to the next section. BE CAREFUL! Not recommened to change it under 400 for a good behavior in laptops and Apple devices (laptops, mouses...).
+
 - `sectionsColor`:(default `none`) Define the CSS `background-color` property for each section:
 Example:
 ```javascript
