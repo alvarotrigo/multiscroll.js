@@ -1,5 +1,5 @@
 /*!
- * multiscroll.js 0.2.1
+ * multiscroll.js 0.2.2
  * https://github.com/alvarotrigo/multiscroll.js
  * @license MIT licensed
  *
@@ -352,7 +352,7 @@
 
                 //if the keyboard is NOT visible
                 if (!activeElement.is('textarea') && !activeElement.is('input') && !activeElement.is('select')) {
-                    var currentHeight = $window.height();
+                    var currentHeight = $(window).height();
 
                     //making sure the change in the viewport size is enough to force a rebuild. (20 % of the window to avoid problems when hidding scroll bars)
                     if( Math.abs(currentHeight - previousHeight) > (20 * Math.max(previousHeight, currentHeight) / 100) ){
@@ -760,8 +760,7 @@
         * This way, the touchstart and the touch moves shows an small difference between them which is the
         * used one to determine the direction.
         */
-        function touchMoveHandler(event){
-            var e = event.originalEvent;
+        function touchMoveHandler(e){
 
             if(isReallyTouch(e)){
                 //preventing the easing on iOS devices
@@ -802,8 +801,7 @@
         /**
         * Handler to get he coordinates of the starting touch
         */
-        function touchStartHandler(event){
-            var e = event.originalEvent;
+        function touchStartHandler(e){
 
             if(isReallyTouch(e)){
                 var touchEvents = getEventsPage(e);
@@ -818,8 +816,11 @@
         */
         function addTouchHandler(){
             if(isTouch || isTouchDevice){
-                $(document).off(events.touchstart).on(events.touchstart, touchStartHandler);
-                $(document).off(events.touchmove).on(events.touchmove, touchMoveHandler);
+                document.removeEventListener(events.touchstart, touchStartHandler);
+                document.removeEventListener(events.touchmove, touchMoveHandler, {passive: false});
+
+                document.addEventListener(events.touchstart, touchStartHandler);
+                document.addEventListener(events.touchmove, touchMoveHandler, {passive: false});
             }
         }
 
@@ -828,8 +829,8 @@
         */
         function removeTouchHandler(){
             if(isTouch || isTouchDevice){
-                $(document).off(events.touchstart);
-                $(document).off(events.touchmove);
+                document.removeEventListener(events.touchstart, touchStartHandler);
+                document.removeEventListener(events.touchmove, touchMoveHandler, {passive: false});
             }
         }
 
@@ -882,7 +883,7 @@
 
             $(window)
                 .off('hashchange', hashChangeHandler)
-                .off('resize', doneResizing);
+                .off('resize', resizeHandler);
 
             $(document)
                 .off('mouseenter', '#multiscroll-nav li')
@@ -900,7 +901,7 @@
 
             $(window)
                 .on('hashchange', hashChangeHandler)
-                .on('resize', doneResizing);
+                .on('resize', resizeHandler);
 
             $(document)
                 .on('mouseenter', '#multiscroll-nav li', navMouseEnterHandler)
