@@ -365,7 +365,7 @@ Example:
 
 ```javascript
 	$('#multiscroll').multiscroll({
-		onLeave: function(index, direction){
+		onLeave: function(index, nextIndex, direction){
 			//after leaving section 2
 			if(index == '2' && direction =='down'){
 				alert("Going to section 3!");
