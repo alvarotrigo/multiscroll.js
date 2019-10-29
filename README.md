@@ -292,6 +292,13 @@ $.fn.multiscroll.moveTo('firstSection');
 $.fn.multiscroll.moveTo(3);
 ```
 
+### setMouseWheelScrolling
+Adds or remove the possibility of scrolling through sections by using mouse wheel (which is active by default).
+
+```javascript
+$.fn.multiscroll.setMouseWheelScrolling(false);
+```
+
 ### setKeyboardScrolling
 Adds or remove the possibility of scrolling through sections by using the keyboard arrow keys (which is active by default).
 
