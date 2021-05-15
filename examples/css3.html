@@ -12,27 +12,25 @@
 
 	<link rel="stylesheet" type="text/css" href="../jquery.multiscroll.css" />
 	<link rel="stylesheet" type="text/css" href="examples.css" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <script
+	src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../vendors/jquery.easings.min.js"></script>
 	<script type="text/javascript" src="../jquery.multiscroll.js"></script>
 
 	<script type="text/javascript">
 	 $(document).ready(function() {
+
+			// By default multiScroll uses css3: true
             $('#myContainer').multiscroll({
-            	sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
+				sectionsColor: ['#00b3d7', '#ed2', '#ff73a1'],
             	anchors: ['first', 'second', 'third'],
-            	menu: '#menu',
-            	css3: true
+            	menu: '#menu'
             });
         });
     </script>
-
-    <style>
-    h1{
-    	color: #fff;
-    }
-	</style>
-
 </head>
 <body>
 

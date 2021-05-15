@@ -1,9 +1,12 @@
 /*!
- * multiscroll.js 0.2.2
+ * multiscroll.js 0.2.3
  * https://github.com/alvarotrigo/multiscroll.js
- * @license MIT licensed
  *
- * Copyright (C) 2016 alvarotrigo.com - A project by Alvaro Trigo
+ * @license
+ * Get a multiScroll.js Commercial License for commercial use
+ * https://alvarotrigo.com/multiScroll/pricing/
+ *
+ * Copyright (C) 2018 http://alvarotrigo.com/multiScroll/ - A project by Alvaro Trigo
  */
 html, body {
     margin: 0;
@@ -32,6 +35,10 @@ html, body {
     -moz-transition: all 0.7s ease-out;
     -o-transition: all 0.7s ease-out;
     transition: all 0.7s ease-out;
+}
+.ms-notransition {
+    -webkit-transition: none !important;
+    transition: none !important;
 }
 #multiscroll-nav {
     position: fixed;

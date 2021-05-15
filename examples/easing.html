@@ -12,8 +12,11 @@
 	
 	<link rel="stylesheet" type="text/css" href="../jquery.multiscroll.css" />		
 	<link rel="stylesheet" type="text/css" href="examples.css" />		
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script type="text/javascript" src="../vendors/jquery.easings.min.js"></script>
+
+    <script
+	src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../jquery.multiscroll.js"></script>
 
 	<script type="text/javascript">
@@ -22,7 +25,10 @@
             	sectionsColor: ['#8FB98B', '#DE564B', '#EAE1C0'],
             	anchors: ['first', 'second', 'third'],
             	menu: '#menu',
-            	easing: 'easeOutBack'
+				css3: true,
+            	
+				//equivalent to jQuery `easeOutBack` extracted from http://matthewlein.com/ceaser/
+        		easingcss3: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)'
             });
         });
     </script>

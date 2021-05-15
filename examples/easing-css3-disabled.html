@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+	<title>multiscroll.js - split multi-scrolling pages plugin</title>
+	<meta name="author" content="Alvaro Trigo Lopez" />
+	<meta name="description" content="multiscroll plugin by Alvaro Trigo. Create divided multi-scrolling pages with two splited vertical layouts or panels." />
+	<meta name="keywords"  content="multiscroll,jquery,alvaro,trigo,plugin,divided,splitscreen,screen,panels,layouts,vertical,split,splited" />
+	<meta name="Resource-type" content="Document" />
+
+	
+	<link rel="stylesheet" type="text/css" href="../jquery.multiscroll.css" />		
+	<link rel="stylesheet" type="text/css" href="examples.css" />		
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+    
+    <!-- IMPORTANT TO ADD EASINGS in jQuery-->
+	<script type="text/javascript" src="../vendors/jquery.easings.min.js"></script>
+
+	<script type="text/javascript" src="../jquery.multiscroll.js"></script>
+
+	<script type="text/javascript">
+	 $(document).ready(function() {
+            $('#myContainer').multiscroll({
+            	sectionsColor: ['#8FB98B', '#DE564B', '#EAE1C0'],
+            	anchors: ['first', 'second', 'third'],
+            	menu: '#menu',
+				css3: false,
+                
+                // you can use any on the this list
+                // https://api.jqueryui.com/1.12/easings/
+                //
+                // note you have to include this file
+                // ../vendors/jquery.easings.min.js
+        		easing: 'easeOutBack'
+            });
+        });
+    </script>
+
+	<style>
+		.ms-section{
+			text-align: center;
+		}
+
+		#menu li {
+			display:inline-block;
+			margin: 10px;
+			color: #000;
+			background:#fff;
+			background: rgba(255,255,255, 0.3);
+			-webkit-border-radius: 10px; 
+		            border-radius: 10px; 
+		}
+		#menu li.active{
+			background:#666;
+			background: rgba(255,255,255, 1);
+			color: #000;
+		}
+		#menu li a{
+			text-decoration:none;
+			color: #000;
+		}
+		#menu li.active a:hover{
+			color: #000;
+		}
+		#menu li:hover{
+			background: rgba(255,255,255, 0.8);
+		}
+		#menu li a,
+		#menu li.active a{
+			padding: 9px 18px;
+			display:block;
+		}
+		#menu li.active a{
+			color: #000;
+		}
+		#menu{
+			position:fixed;
+			top:0;
+			left:0;
+			height: 40px;
+			z-index: 70;
+			width: 100%;
+			padding: 0;
+			margin:0;
+		}
+	</style>
+
+</head>
+<body>
+
+
+<ul id="menu">
+	<li data-menuanchor="first"><a href="#first">First section</a></li>
+	<li data-menuanchor="second"><a href="#second">Second section</a></li>
+	<li data-menuanchor="third"><a href="#third">Third section</a></li>
+</ul>
+
+<div id="myContainer">
+
+	<div class="ms-left">
+		<div class="ms-section" id="left1">
+			<h1>Left 1</h1>
+		</div>
+
+		<div class="ms-section" id="left2">
+			<h1>Left 2 </h1>
+		</div>
+
+		<div class="ms-section" id="left3">
+			<h1>Left 3</h1>
+		</div>
+	</div>
+	
+	<div class="ms-right">
+		<div class="ms-section" id="right1">
+			<h1>Right 1</h1>
+		</div>
+
+		<div class="ms-section" id="right2">
+			<h1>Right 2</h1>
+		</div>
+
+		<div class="ms-section" id="right3">
+			<h1>Right 3</h1>
+		</div>
+	</div>	
+</div>
+
+</body>
+</html>

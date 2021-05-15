@@ -1,3 +1,10 @@
-*.DS_Store
+.DS_Store
+.idea
+.ignore/
+.vscode/*
 bower_components/
-/node_modules/
+node_modules/
+**/node_modules/
+package-lock.json
+src/fullpage.extensions.js
+examples/bug**

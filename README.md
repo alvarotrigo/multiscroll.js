@@ -1,18 +1,17 @@
 # multiScroll.js
 
 ![preview](https://raw.github.com/alvarotrigo/multiScroll.js/master/examples/imgs/multiscroll.png)
-![compatibility](http://alvarotrigo.com/multiScroll/imgs/compatible.gif)
+![compatibility](https://alvarotrigo.com/multiScroll/imgs/compatible.gif)
 
 ---
-![multiScroll.js version](http://img.shields.io/badge/multiscroll.js-v0.2.2-brightgreen.svg)
-[![License](http://img.shields.io/badge/License-MIT-blue.svg)](http://opensource.org/licenses/MIT)
+![multiScroll.js version](http://img.shields.io/badge/multiscroll.js-v0.2.3-brightgreen.svg)
 [![PayPal Donate](https://img.shields.io/badge/donate-PayPal.me-ff69b4.svg)](https://www.paypal.me/alvarotrigo/9.95)
 &nbsp;&nbsp; **|**&nbsp;&nbsp; *3.7Kb gziped* &nbsp;&nbsp;**|**&nbsp;&nbsp; *Created by [@imac2](https://twitter.com/imac2)*
 
-- [Live demo](http://alvarotrigo.com/multiScroll/)
+- [Live demo](https://alvarotrigo.com/multiScroll/) | [Codepen](https://codepen.io/alvarotrigo/pen/WNpwPLJ)
 - [Wordpress theme](https://goo.gl/Xuix30)
-- [multiScroll.js Extensions](http://alvarotrigo.com/multiScroll/extensions/)
-- [Website post](http://alvarotrigo.com/blog/multiscroll-js-jquery-plugin-to-create-multi-scrolling-sites-with-two-vertical-layouts/)
+- [multiScroll.js Extensions](https://alvarotrigo.com/multiScroll/extensions/)
+- [Website post](https://alvarotrigo.com/blog/multiscroll-js-jquery-plugin-to-create-multi-scrolling-sites-with-two-vertical-layouts/)
 ---
 
 A simple plugin to create multi scrolling websites with two vertical scrolling panels.
@@ -21,10 +20,11 @@ A simple plugin to create multi scrolling websites with two vertical scrolling p
 Invite me to a coffee
 [![Donate](https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/es/cgi-bin/webscr?cmd=_donations&business=BEK5JQCQMED4J&lc=GB&item_name=multiScroll%2ejs&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
 
-Customizations of the plugin available upon request for some reasonable price. <a href="http://alvarotrigo.com/#contact-page">Contact me</a>.
+Customizations of the plugin available upon request for some reasonable price. <a href="https://alvarotrigo.com/#contact-page">Contact me</a>.
 
 - [Introduction](https://github.com/alvarotrigo/multiscroll.js#introduction)
 - [Compatibility](https://github.com/alvarotrigo/multiscroll.js#compatibility)
+- [License](https://github.com/alvarotrigo/multiScroll.js#license)
 - [Usage](https://github.com/alvarotrigo/multiscroll.js#usage)
   - [Creating links to sections](https://github.com/alvarotrigo/multiscroll.js#creating-links-to-sections)
   - [State classes added by multiscroll.js](https://github.com/alvarotrigo/multiscroll.js#state-classes-added-by-multiscrolljs)
@@ -36,9 +36,9 @@ Customizations of the plugin available upon request for some reasonable price. <
 - [Changelog](https://github.com/alvarotrigo/multiscroll.js#changelog)
 - [Build tasks](https://github.com/alvarotrigo/multiscroll.js#build-tasks)
 - [Resources](https://github.com/alvarotrigo/multiscroll.js#resources)
+- [Related projects](https://github.com/alvarotrigo/multiscroll.js#related-projects)
 - [Who is using multiscroll.js](https://github.com/alvarotrigo/multiscroll.js#who-is-using-multiscrolljs)
 - [Donations](https://github.com/alvarotrigo/multiscroll.js#donations)
-- [License](https://github.com/alvarotrigo/multiscroll.js#license)
 
 ## Introduction
 This plugin its in Beta version. Suggestion are more than welcome, not only for feature requests but also for coding style improvements.
@@ -47,6 +47,18 @@ This plugin its in Beta version. Suggestion are more than welcome, not only for 
 multiScroll.js is fully functional on all modern browsers, as well as some old ones such as Internet Explorer 8, 9, Opera 12...
 It works with browsers with CSS3 support and with the ones who don't have it, making it ideal for old browsers compatibility.
 It is designed to work as well on touch devices such as mobile phones or tablets.
+
+## License
+
+### Commercial license
+If you want to use multiScroll.js to develop commercial websites, themes, projects, and applications, the Commercial license is the appropriate license. With this option, your source code is kept proprietary. Which means, you won't have to change your whole application source code to an open source license. [[Purchase a multiScroll.js Commercial License]](https://alvarotrigo.com/multiScroll/pricing/)
+
+### Non commercial license
+If you are creating non commercial pages, you can use it without a license. Bare in mind all companies websites are considered commercial, ncluding non profit organisations websites.
+
+**The credit comments in the JavaScript and CSS files should be kept intact** (even after combination or minification)
+
+[Read more about multiScroll's license](https://alvarotrigo.com/multiScroll/pricing/).
 
 ## Usage
 As you can see in the example files, you will need to include the JavaScript file `jquery.multiscroll.js` (or the minified version `jquery.multiscroll.min.js`) and the css file `jquery.multiscroll.css` of the plugin, as well as [jQuery](http://jquery.com/). Optionally, you can add the [jQuery UI library](http://jqueryui.com/) in case you want to use other easing effects apart from the ones included in the jQuery library which are the `linear` or `swing` effects. (`easeInQuart` is active by default, so you would need [jQuery UI library](http://jqueryui.com/) or the customized version  which is included in the vendors folder under the name `jquery.easings.min.js`.)
@@ -68,16 +80,17 @@ npm install multiscroll.js
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-<!-- This following line is needed in case of using the default easing option or when using another
- one rather than "linear" or "swing". You can also add the full jQuery UI instead of this file if you prefer -->
+<!-- This following line is needed in case of using the multiScroll option css3:false and using a non default value for the option `easingcss3`. You can also add the full jQuery UI instead of this file if you prefer -->
 <script src="vendors/jquery.easings.min.js"></script>
 
 <script type="text/javascript" src="jquery.multiscroll.js"></script>
 ```
 
 ### Optional use of CDN
-If you prefer to use a CDN to load the needed files, multiscroll.js is in CDNJS:
-https://cdnjs.com/libraries/multiscroll.js
+If you prefer to use a CDN to load the needed files, multiscroll.js is in CDNJS and others:
+- https://cdnjs.com/libraries/multiscroll.js
+- https://unpkg.com/multiscroll.js
+
 
 ### Required HTML structure
 Each section will be defined with a `div` containing the `section` class.
@@ -120,6 +133,7 @@ $(document).ready(function() {
 		verticalCentered : true,
 		scrollingSpeed: 700,
 		easing: 'easeInQuart',
+		easingcss3: 'ease-out',
 		menu: false,
 		sectionsColor: [],
 		navigation: false,
@@ -171,11 +185,11 @@ multiScroll.js adds multiple classes in different elements to keep a record of t
 
 - `active` is added the current visible section.
 - `active` is added to the current menu element (if using the `menu` option).
-- A class of the form `ms-viewing-SECTION` is added to the `body` element of the site. (eg: [`ms-viewing-second`](http://alvarotrigo.com/multiScroll/#second) The `SECTION` part will be the anchors (or index if no anchor is provided) of the current section.
+- A class of the form `ms-viewing-SECTION` is added to the `body` element of the site. (eg: [`ms-viewing-second`](https://alvarotrigo.com/multiScroll/#second) The `SECTION` part will be the anchors (or index if no anchor is provided) of the current section.
 - `ms-responsive` is added to the `body` element when the entering in the responsive mode
 
 ### Use extensions
-multiscroll.js [provides a set of extensions](http://alvarotrigo.com/multiScroll/extensions/) you can use to enhance its default features. All of them are listed as [multiscroll.js options](https://github.com/alvarotrigo/multiscroll.js#options).
+multiscroll.js [provides a set of extensions](https://alvarotrigo.com/multiScroll/extensions/) you can use to enhance its default features. All of them are listed as [multiscroll.js options](https://github.com/alvarotrigo/multiscroll.js#options).
 
 Extensions requires you to use the minified file [`jquery.multiscroll.extensions.min.js`](https://github.com/alvarotrigo/multiscroll.js/blob/master/dist/jquery.multiscroll.extensions.min.js) that is inside the [`dist` folder](https://github.com/alvarotrigo/multiscroll.js/tree/master/dist) instead of the usual multiscroll.js file (`jquery.multiscroll.js` or `jquery.multiscroll.min.js`).
 
@@ -191,6 +205,14 @@ An activation key and a license key will be required for each extension. [See mo
 Then you will be able to use and configure them as explained in [options](https://github.com/alvarotrigo/multiscroll.js#options).
 
 ## Options
+
+- `licenseKey`: (default `null`). **This option is compulsory.** If you use multiScroll in any kind of commercial project, then you should use the license key provided on the purchase of the multiScroll.js Commercial License. Please read more about licenses [here](https://github.com/alvarotrigo/multiscroll.js#license) and [on the website](https://alvarotrigo.com/multiScroll/pricing/). For example:
+
+```javascript
+$('#multiscroll').multiscroll({
+    licenseKey: 'YOUR_KEY_HERE'
+});
+```
 
 - `verticalCentered`: (default `true`) Vertically centering of the content within sections.
 
@@ -221,7 +243,7 @@ It requires the file `vendors/jquery.easings.min.js` or [jQuery UI](http://jquer
 
 - `normalScrollElements`: (default `null`) If you want to avoid the auto scroll when scrolling over some elements, this is the option you need to use. (useful for maps, scrolling divs etc.) It requires a string with the jQuery selectors for those elements. (For example: `normalScrollElements: '#element1, .element2'`)
 
-- `scrollOverflow`: (default `false`) [Demo](https://alvarotrigo.com/multiScroll/extensions/scrollOverflow.html) | [Extension of multiScroll.js](http://alvarotrigo.com/multiScroll/extensions/). (not compatible with IE 8) defines whether or not to create a scroll bar for the section/slide in case its content is bigger than the viewport's height. When set to `true`, your content will be wrapped by multiScroll.js. Consider using delegation or load your other scripts in the `afterRender` callback.
+- `scrollOverflow`: (default `false`) [Demo](https://alvarotrigo.com/multiScroll/extensions/scrollOverflow.html) | [Extension of multiScroll.js](https://alvarotrigo.com/multiScroll/extensions/). (not compatible with IE 8) defines whether or not to create a scroll bar for the section/slide in case its content is bigger than the viewport's height. When set to `true`, your content will be wrapped by multiScroll.js. Consider using delegation or load your other scripts in the `afterRender` callback.
 
 - `scrollOverflowOptions`: (default `null`) when using `scrollOverflow:true` multiScroll.js will make use of a forked and modified version of [iScroll.js library](https://github.com/cubiq/iscroll/). You can customize the scrolling behaviour by providing multiScroll.js with the iScroll.js options you want to use. Check its [documentation](http://iscrolljs.com/) for more info.
 
@@ -263,7 +285,7 @@ $('#multiscroll').multiscroll({
 
 - `responsiveHeight`: (default `0`) Only useful when using the option `responsiveExpand`. Normal scroll will be used under the defined height in pixels. A class `ms-responsive` is added to the body tag in case the user wants to use it for his own responsive CSS. For example, if set to 900, whenever the browser's height is less than 900 the plugin will scroll like a normal site.
 
-- `responsiveExpand`: (default `false`) [Demo](https://alvarotrigo.com/multiScroll/extensions/responsive-expand.html) | [Extension of multiScroll.js](http://alvarotrigo.com/multiScroll/extensions/). When responsive mode is fired (by using the `responsiveWidth` or `responsiveHeight` options detailed above) it turns auto scrolling off and expands each left and right side into a full-width section placing one after another. Then the page can be scrolled normally. [Read more about how to use the Responsive Expand option.](https://github.com/alvarotrigo/multiscroll.js/wiki/Responsive-Expand-Extension)
+- `responsiveExpand`: (default `false`) [Demo](https://alvarotrigo.com/multiScroll/extensions/responsive-expand.html) | [Extension of multiScroll.js](https://alvarotrigo.com/multiScroll/extensions/). When responsive mode is fired (by using the `responsiveWidth` or `responsiveHeight` options detailed above) it turns auto scrolling off and expands each left and right side into a full-width section placing one after another. Then the page can be scrolled normally. [Read more about how to use the Responsive Expand option.](https://github.com/alvarotrigo/multiscroll.js/wiki/Responsive-Expand-Extension)
 
 ## Methods
 
@@ -419,6 +441,11 @@ Want to build multiscroll.js distribution files? Please see [Build Tasks](https:
 
 ## Resources
 - [Wordpress theme](https://goo.gl/kaTYZb)
+- [CSS Easing Animation Tool - Matthew Lein](https://matthewlein.com/tools/ceaser) (useful to define the easing value)
+
+## Related projects
+- [fullPage.js](https://alvarotrigo.com/fullPage/)
+- [pagePiling.js](https://alvarotrigo.com/pagePiling/)
 
 ## Who is using multiscroll.js
 If you want your page to be listed here. Please <a href="mailto:alvaro@alvarotrigo.com">contact me</a> with the URL.
@@ -426,50 +453,17 @@ If you want your page to be listed here. Please <a href="mailto:alvaro@alvarotri
 - [Themify](https://goo.gl/kaTYZb)
 - http://designova.net/reflex/index07.html
 - https://www.genscher.com
-- http://betterhr.de
 - https://www.kurasino.co.jp
-- http://www.lhaulhaumaria.com
-- https://thewastedhour.com
-- http://restaurant-eveil.com
 - https://www.tischlerei-clemens.de/tischlerei.html
 - http://www.ateliers-romeo.com
 - https://buerobinder.de
 - https://www.blancacre.com
-- http://caporasosrls.com
 - https://www.epic.ch/de/home
 - https://www.paulsbuero.com
-- http://ruiferraodev.net
 - http://lucasfleischer.com
-- https://quintushortus.com/pages/le-concept
 
 
 ## Donations
 Donations would be more than welcome :)
 
 [![Donate](https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/es/cgi-bin/webscr?cmd=_donations&business=BEK5JQCQMED4J&lc=GB&item_name=multiScroll%2ejs&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
-
-
-## License
-
-(The MIT License)
-
-Copyright (c) 2013 Alvaro Trigo &lt;alvaro@alvarotrigo.com&gt;
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

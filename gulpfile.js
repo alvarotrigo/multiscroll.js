@@ -4,7 +4,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var minifyCss = require('gulp-clean-css');
 
-gulp.task('css', function() {
+gulp.task('css', function(done) {
     gulp.src('./jquery.multiscroll.css')
         .pipe(sourcemaps.init())
         .pipe(gulp.dest('./dist'))
@@ -16,9 +16,10 @@ gulp.task('css', function() {
         .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./dist'));
+    done();
 });
 
-gulp.task('js', function() {
+gulp.task('js', function(done) {
     gulp.src('./jquery.multiscroll.js')
         .pipe(sourcemaps.init())
         .pipe(gulp.dest('./dist'))
@@ -30,6 +31,7 @@ gulp.task('js', function() {
         .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./dist'));
+    done();
 });
 
-gulp.task('default', ['css', 'js']);
+gulp.task('default', gulp.series(['css', 'js']));

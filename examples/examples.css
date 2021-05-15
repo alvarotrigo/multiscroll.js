@@ -54,13 +54,13 @@ body{
 }
 h1{
 	font-size: 6em;	
-}
+	color: #fff;
 p{
 	font-size: 2em;
 }
 .ms-section{
-			text-align: center;
-		}
+	text-align: center;
+}
 
 #menu li {
 	display:inline-block;
