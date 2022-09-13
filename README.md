@@ -43,10 +43,10 @@ Customizations of the plugin available upon request for some reasonable price. <
 This plugin its in Beta version. Suggestion are more than welcome, not only for feature requests but also for coding style improvements.
 
 ## Compatibility
-![](https://user-images.githubusercontent.com/89864580/189929524-d46452a7-e6be-40d0-b7ce-e4889f7db622.png)
 multiScroll.js is fully functional on all modern browsers, as well as some old ones such as Internet Explorer 8, 9, Opera 12...
 It works with browsers with CSS3 support and with the ones who don't have it, making it ideal for old browsers compatibility.
 It is designed to work as well on touch devices such as mobile phones or tablets.
+![](https://user-images.githubusercontent.com/89864580/189929524-d46452a7-e6be-40d0-b7ce-e4889f7db622.png)
 
 ## License
 
