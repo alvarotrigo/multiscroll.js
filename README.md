@@ -1,7 +1,6 @@
 # multiScroll.js
 
 ![preview](https://raw.github.com/alvarotrigo/multiScroll.js/master/examples/imgs/multiscroll.png)
-![compatibility](https://alvarotrigo.com/multiScroll/imgs/compatible.gif)
 
 ---
 ![multiScroll.js version](http://img.shields.io/badge/multiscroll.js-v0.2.3-brightgreen.svg)
@@ -47,6 +46,7 @@ This plugin its in Beta version. Suggestion are more than welcome, not only for 
 multiScroll.js is fully functional on all modern browsers, as well as some old ones such as Internet Explorer 8, 9, Opera 12...
 It works with browsers with CSS3 support and with the ones who don't have it, making it ideal for old browsers compatibility.
 It is designed to work as well on touch devices such as mobile phones or tablets.
+![](https://user-images.githubusercontent.com/89864580/189929524-d46452a7-e6be-40d0-b7ce-e4889f7db622.png)
 
 ## License
 
@@ -151,7 +151,7 @@ $(document).ready(function() {
 		keyboardScrolling: true,
 		touchSensitivity: 5,
 
-		//responsive
+		// Responsive
 		responsiveWidth: 0,
 		responsiveHeight: 0,
 		responsiveExpand: false,
@@ -161,7 +161,7 @@ $(document).ready(function() {
 		leftSelector: '.ms-left',
 		rightSelector: '.ms-right',
 
-		//events
+		// Events
 		onLeave: function(index, nextIndex, direction){},
 		afterLoad: function(anchorLink, index){},
 		afterRender: function(){},
